@@ -22,16 +22,14 @@ define('composer', [
 	'messages',
 	'search',
 	'screenfull',
-], function (taskbar, translator, uploads, formatting, drafts, tags,
-	categoryList, preview, resize, autocomplete, scheduler, postQueue, scrollStop,
-	topicThumbs, api, bootbox, alerts, hooks, messagesModule, search, screenfull) {
+], function (taskbar, translator, uploads, formatting, drafts, tags,categoryList, preview, resize, autocomplete, scheduler, postQueue, scrollStop,topicThumbs, api, bootbox, alerts, hooks, messagesModule, search, screenfull) {
 	var composer = {
 		active: undefined,
 		posts: {},
 		bsEnvironment: undefined,
 		formatting: undefined,
-	};
-	console.log(composer)
+	}
+
 	$(window).off('resize', onWindowResize).on('resize', onWindowResize);
 	onWindowResize();
 
@@ -354,7 +352,8 @@ define('composer', [
 
 		postContainer.on('click', '.composer-submit', function (e) {
 			e.preventDefault();
-			e.stopPropagation();	// Other click events bring composer back to active state which is undesired on submit
+			e.stopPropagation();
+			// Other click events bring composer back to active state which is undesired on submit
 
 			$(this).attr('disabled', true);
 			post(post_uuid);
@@ -868,7 +867,6 @@ define('composer', [
 		$(window).trigger('action:composer.minimize', {
 			post_uuid: post_uuid,
 		});
-
 		onHide();
 	};
 

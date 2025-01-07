@@ -179,6 +179,17 @@ plugin.filterComposerBuild = async function (hookData) {
 	globalPrivileges['topics:tag'] = canTagTopics;
 	const cid = parseInt(req.query.cid, 10);
 	const topicTitle = topicData && topicData.title ? topicData.title.replace(/%/g, '&#37;').replace(/,/g, '&#44;') : validator.escape(String(req.query.title || ''));
+
+	let arr = formatting;
+	let arr1 = [];
+	arr.forEach(item => {
+		if(item.name=='code'||item.name=='link'||item.name=='picture-o'||item.name=='zen'){
+
+		}else{
+			arr1.push(item)
+		}
+	});
+
 	return {
 		req: req,
 		res: res,
@@ -218,7 +229,7 @@ plugin.filterComposerBuild = async function (hookData) {
 			showHandleInput: meta.config.allowGuestHandles === 1 &&
 				(req.uid === 0 || (isEditing && isGuestPost && (isAdmin || isMod))),
 			handle: postData ? postData.handle || '' : undefined,
-			formatting: formatting,
+			formatting: arr1,
 			isAdminOrMod: isAdmin || isMod,
 			save_id: save_id,
 			privileges: globalPrivileges,

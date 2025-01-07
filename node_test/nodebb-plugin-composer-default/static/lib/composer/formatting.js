@@ -43,31 +43,31 @@ define('composer/formatting', [
 			postContainer.find('.tags-container').toggleClass('hidden');
 		},
 
-		zen: function () {
-			var postContainer = this;
-			$(window).one('resize', function () {
-				function onResize() {
-					if (!screenfull.isFullscreen) {
-						app.toggleNavbar(true);
-						$('html').removeClass('zen-mode');
-						resize.reposition(postContainer);
-						$(window).off('resize', onResize);
-					}
-				}
+		// zen: function () {
+		// 	var postContainer = this;
+		// 	$(window).one('resize', function () {
+		// 		function onResize() {
+		// 			if (!screenfull.isFullscreen) {
+		// 				app.toggleNavbar(true);
+		// 				$('html').removeClass('zen-mode');
+		// 				resize.reposition(postContainer);
+		// 				$(window).off('resize', onResize);
+		// 			}
+		// 		}
 
-				if (screenfull.isFullscreen) {
-					app.toggleNavbar(false);
-					$('html').addClass('zen-mode');
-					postContainer.find('.write').focus();
+		// 		if (screenfull.isFullscreen) {
+		// 			app.toggleNavbar(false);
+		// 			$('html').addClass('zen-mode');
+		// 			postContainer.find('.write').focus();
 
-					$(window).on('resize', onResize);
-					$(window).one('action:composer.topics.post action:composer.posts.reply action:composer.posts.edit action:composer.discard', screenfull.exit);
-				}
-			});
+		// 			$(window).on('resize', onResize);
+		// 			$(window).one('action:composer.topics.post action:composer.posts.reply action:composer.posts.edit action:composer.discard', screenfull.exit);
+		// 		}
+		// 	});
 
-			screenfull.toggle(postContainer.get(0));
-			$(window).trigger('action:composer.fullscreen', { postContainer: postContainer });
-		},
+		// 	screenfull.toggle(postContainer.get(0));
+		// 	$(window).trigger('action:composer.fullscreen', { postContainer: postContainer });
+		// },
 	};
 
 	var buttons = [];
