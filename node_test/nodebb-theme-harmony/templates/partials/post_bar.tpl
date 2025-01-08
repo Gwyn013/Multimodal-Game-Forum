@@ -13,13 +13,13 @@
 				<!-- IMPORT partials/topic/sort.tpl -->
 				<!-- IMPORT partials/topic/tools.tpl -->
 				
-				<button component="filter:topic.getPosts" class="btn btn-ghost btn-sm ff-secondary d-flex gap-2 align-items-center">
-					<i class="fa fa-fw fa-inbox text-primary"></i>只看楼主
+				<button component="filter:topic.hook" class="btn btn-ghost btn-sm ff-secondary d-flex gap-2 align-items-center">
+					<i class="fa fa-fw fa-inbox text-primary"></i>[[global:look_top]]
 				</button>
 
-				{{{ if (!feeds:disableRSS && rssFeedUrl) }}}
+				<!-- {{{ if (!feeds:disableRSS && rssFeedUrl) }}}
 				<a class="btn btn-ghost btn-sm d-none d-lg-flex align-items-center align-self-stretch" target="_blank" href="{rssFeedUrl}" title="[[global:rss-feed]]"><i class="fa fa-rss text-primary"></i></a>
-				{{{ end }}}
+				{{{ end }}} -->
 
 				{{{ if browsingUsers }}}
 				<div class="hidden-xs"><!-- IMPORT partials/topic/browsing-users.tpl --></div>
