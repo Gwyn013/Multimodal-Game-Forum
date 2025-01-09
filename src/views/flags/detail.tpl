@@ -68,7 +68,9 @@
 				<select class="form-control form-control-sm" id="assignee" name="assignee" disabled>
 					<option value="">[[flags:no-assignee]]</option>
 					{{{each assignees}}}
-					<option value="{../uid}">{../username}</option>
+					<option value="{../uid}">
+					<!-- IF ../fullname -->{../fullname}<!-- ELSE -->{../username}<!-- ENDIF ../fullname -->
+					</option>
 					{{{end}}}
 				</select>
 			</div>
@@ -86,7 +88,8 @@
 			<div class="d-flex flex-column gap-1">
 				<div class="d-flex gap-2 align-items-center">
 					<a class="d-flex text-decoration-none" href="{config.relative_path}/user/{./user.userslug}">{buildAvatar(./user, "16px", true)}</a>
-					<a href="{config.relative_path}/user/{./user.userslug}">{./user.username}</a>
+					<a href="{config.relative_path}/user/{./user.userslug}">
+					<!-- IF ./user.displayname -->{./user.displayname}<!-- ELSE -->{./user.username}<!-- ENDIF ./user.displayname --></a>
 					<span class="timeago text-muted text-nowrap" title="{./datetimeISO}"></span>
 				</div>
 				<div>
@@ -116,7 +119,7 @@
 				{{{ if type_bool.post }}}
 				<div class="d-flex gap-2 align-items-center">
 					<a class="d-flex text-decoration-none" href="{config.relative_path}/user/{target.user.userslug}">{buildAvatar(target.user, "16px", true)}</a>
-					<a href="{config.relative_path}/user/{target.user.userslug}">{target.user.username}</a>
+					<a href="{config.relative_path}/user/{target.user.userslug}"><!-- IF target.user.fullname -->{target.user.fullname}<!-- ELSE -->{target.user.username}<!-- ENDIF target.user.fullname --></a>
 					<span class="timeago text-muted" title="{target.timestampISO}"></span>
 				</div>
 				<blockquote>{target.content}</blockquote>
@@ -125,7 +128,8 @@
 				{{{ if type_bool.user }}}
 				<div class="d-flex gap-2 align-items-center lh-1 mb-2">
 					<a href="{config.relative_path}/user/{./target.userslug}">{buildAvatar(target, "16px", true)}</a>
-					<a href="{config.relative_path}/user/{./target.userslug}">{target.username}</a>
+					<a href="{config.relative_path}/user/{./target.userslug}">
+					<!-- IF target.fullname -->{target.fullname}<!-- ELSE -->{target.username}<!-- ENDIF target.fullname --></a>
 				</div>
 				<blockquote>{{{ if target.aboutme }}}{target.aboutme}{{{ else }}}<em>[[flags:target-aboutme-empty]]</em>{{{ end }}}</blockquote>
 				{{{ end }}}
@@ -141,7 +145,7 @@
 					<li class="d-flex flex-column gap-1" component="flag/report" data-timestamp="{./timestamp}">
 						<div class="d-flex gap-2 align-items-center">
 							<a class="d-flex text-decoration-none" href="{config.relative_path}/user/{./reporter.userslug}">{buildAvatar(./reporter, "16px", true)}</a>
-							<a href="{config.relative_path}/user/{./reporter.userslug}">{./reporter.username}</a>
+							<a href="{config.relative_path}/user/{./reporter.userslug}"><!-- IF ./reporter.displayname -->{./reporter.displayname}<!-- ELSE -->{./reporter.username}<!-- ENDIF ./reporter.displayname --></a>
 							<span class="timeago text-muted" title="{./timestampISO}"></span>
 						</div>
 						<p>{./value}</p>
@@ -162,7 +166,7 @@
 					<li class="d-flex flex-column gap-1" component="flag/note" data-datetime="{./datetime}" data-index="{@index}">
 						<div class="d-flex gap-2 align-items-center">
 							<a href="{config.relative_path}/user/{./user.userslug}">{buildAvatar(./user, "16px", true)}</a>
-							<a href="{config.relative_path}/user/{./user.userslug}">{./user.username}</a>
+							<a href="{config.relative_path}/user/{./user.userslug}"><!-- IF ./user.displayname -->{./user.displayname}<!-- ELSE -->{./user.username}<!-- ENDIF ./user.displayname --></a>
 							<span class="timeago text-muted" title="{./datetimeISO}"></span>
 							<div class=" ms-auto flex-shrink-0">
 								<a href="#" class="btn btn-sm btn-link" data-action="addEditNote"><i class="fa fa-pencil"></i></a>
