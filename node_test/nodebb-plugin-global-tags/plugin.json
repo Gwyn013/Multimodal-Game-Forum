@@ -1,0 +1,22 @@
+{
+	"id": "nodebb-plugin-global-tags",
+	"url": "https://github.com/Bharatrathi27412/nodebb-plugin-global-tags",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
+		{ "hook": "action:settings.set", "method": "updateConfig" }
+
+	],
+	"scripts": [
+		"node_modules/@iframely/embed.js/dist/embed.min.js",
+		"public/scripts/client.js"
+	],
+	"modules": {
+		"../admin/plugins/global-tags.js": "public/scripts/admin.js"
+	},
+	"scss": [
+		"public/style.scss"
+	],
+	"templates": "public/templates"
+}

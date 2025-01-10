@@ -2,5 +2,11 @@
 	.tag {
 		background-color: $gray-200!important;
 		color: $gray-700!important;
+
+		/* 在标签前加上井号 */
+		&::before {
+			content: "#";  /* 添加井号 */
+			// margin-right: 5px;  /* 井号与标签文本之间的间距 */
+		}
 	}
 }
