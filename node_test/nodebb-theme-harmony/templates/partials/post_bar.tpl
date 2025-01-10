@@ -13,8 +13,9 @@
 				<!-- IMPORT partials/topic/sort.tpl -->
 				<!-- IMPORT partials/topic/tools.tpl -->
 				
-				<button component="filter:topic.hook" class="btn btn-ghost btn-sm ff-secondary d-flex gap-2 align-items-center">
-					<i class="fa fa-fw fa-inbox text-primary"></i>[[global:look_top]]
+				<button component="topic/topic.hook" class="btn btn-ghost btn-sm ff-secondary d-flex gap-2 align-items-center">
+					<i class="fa fa-fw fa-inbox text-primary"></i>
+					<span class="d-none d-md-inline fw-semibold">[[global:look_top]]</span>
 				</button>
 
 				<!-- {{{ if (!feeds:disableRSS && rssFeedUrl) }}}

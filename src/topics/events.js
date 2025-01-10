@@ -103,7 +103,7 @@ function renderUser(event) {
 	if (!event.user || event.user.system) {
 		return '[[global:system-user]]';
 	}
-	return `${helpers.buildAvatar(event.user, '16px', true)} <a href="${relative_path}/user/${event.user.userslug}">${event.user.username}</a>`;
+	return `${helpers.buildAvatar(event.user, '16px', true)} <a href="${relative_path}/user/${event.user.userslug}">${event.user.displayname?event.user.displayname:event.user.username}</a>`;
 }
 
 function renderTimeago(event) {
