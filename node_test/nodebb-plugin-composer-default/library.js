@@ -17,6 +17,7 @@ const utils = require.main.require('./src/utils');
 const helpers = require.main.require('./src/controllers/helpers');
 const SocketPlugins = require.main.require('./src/socket.io/plugins');
 const socketMethods = require('./websockets');
+const { copySync } = require('fs-extra');
 
 const plugin = module.exports;
 

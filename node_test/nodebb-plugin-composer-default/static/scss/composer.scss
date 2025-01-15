@@ -236,7 +236,11 @@
 		padding: $input-padding-y $input-padding-x;
 	}
 }
-
+.list-unstyled{
+	.code,.link,.picture-o,.zen{
+		display: none;
+	}
+}
 .datetime-picker {
 	display: flex;
 	justify-content: center;
