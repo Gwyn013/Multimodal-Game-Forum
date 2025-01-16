@@ -2,8 +2,8 @@
 	<a href="{config.relative_path}/user/{./userslug}" class="btn btn-ghost gap-2 ff-base d-flex align-items-start justify-content-start p-2 text-start">
 		{buildAvatar(@value, "48px", true, "flex-shrink-0")}
 		<div class="d-flex flex-column gap-1 text-truncate">
-			<div class="fw-semibold text-truncate" title="{./fullname}"><!-- IF ./fullname -->{./fullname}<!-- ELSE -->{./username}<!-- ENDIF ./fullname --></div>
-			<div class="text-xs text-muted text-truncate">@<!-- IF ./fullname -->{./fullname}<!-- ELSE -->{./username}<!-- ENDIF ./fullname --></div>
+			<div class="fw-semibold text-truncate" title="{./displayname}">{./displayname}</div>
+			<div class="text-xs text-muted text-truncate">@{./username}</div>
 
 			{{{ if section_online }}}
 			<div class="text-xs text-muted text-truncate">

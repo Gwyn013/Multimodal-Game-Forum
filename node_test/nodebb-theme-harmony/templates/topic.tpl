@@ -49,7 +49,7 @@
 					<div class="d-flex hidden-xs gap-2"><!-- IMPORT partials/topic/stats.tpl --></div>
 				</div>
 			</div>
-			<div class="d-flex gap-2 justify-content-end align-items-center mt-2 hidden-empty" component="topic/thumb/list"><!-- IMPORT partials/topic/thumbs.tpl --></div>
+			<div class="d-flex gap-2 align-items-center mt-2 hidden-empty" component="topic/thumb/list"><!-- IMPORT partials/topic/thumbs.tpl --></div>
 		</div>
 
 		<div class="row mb-4 mb-lg-0">
@@ -69,20 +69,18 @@
 					<div class="posts-container" style="min-width: 0;">
 						<ul component="topic" class="posts timeline list-unstyled mt-sm-2 p-0 py-3" style="min-width: 0;" data-tid="{tid}" data-cid="{cid}">
 						{{{ each posts }}}
-							
-								<li component="post" class="pt-4 {{{ if posts.deleted }}}deleted{{{ end }}} {{{ if posts.selfPost }}}self-post{{{ end }}} {{{ if posts.topicOwnerPost }}}topic-owner-post{{{ end }}}" <!-- IMPORT partials/data/topic.tpl -->>
-									<a component="post/anchor" data-index="{./index}" id="{increment(./index, "1")}"></a>
-									<meta itemprop="datePublished" content="{./timestampISO}">
-									{{{ if ./editedISO }}}
-									<meta itemprop="dateModified" content="{./editedISO}">
-									{{{ end }}}
-
-									<!-- IMPORT partials/topic/post.tpl -->
-								</li>
-								{{{ if (config.topicPostSort != "most_votes") }}}
-								{{{ each ./events}}}<!-- IMPORT partials/topic/event.tpl -->{{{ end }}}
+							<li component="post" class="pt-4 {{{ if posts.deleted }}}deleted{{{ end }}} {{{ if posts.selfPost }}}self-post{{{ end }}} {{{ if posts.topicOwnerPost }}}topic-owner-post{{{ end }}}" <!-- IMPORT partials/data/topic.tpl -->>
+								<a component="post/anchor" data-index="{./index}" id="{increment(./index, "1")}"></a>
+								<meta itemprop="datePublished" content="{./timestampISO}">
+								{{{ if ./editedISO }}}
+								<meta itemprop="dateModified" content="{./editedISO}">
 								{{{ end }}}
-						
+
+								<!-- IMPORT partials/topic/post.tpl -->
+							</li>
+							{{{ if (config.topicPostSort != "most_votes") }}}
+							{{{ each ./events}}}<!-- IMPORT partials/topic/event.tpl -->{{{ end }}}
+							{{{ end }}}
 						{{{ end }}}
 						</ul>
 						{{{ if browsingUsers }}}

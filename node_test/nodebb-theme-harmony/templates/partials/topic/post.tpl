@@ -7,7 +7,7 @@
 {{{ end }}}
 <div class="d-flex align-items-start gap-3">
 	<div class="bg-body d-none d-sm-block rounded-circle" style="outline: 2px solid var(--bs-body-bg);">
-		<a class="d-inline-block position-relative text-decoration-none" href="{{{ if ./user.userslug }}}{config.relative_path}/user/{./user.userslug}{{{ else }}}#{{{ end }}}" aria-label="[[aria:user-avatar-for, <!-- IF ./user.fullname -->{./user.fullname}<!-- ELSE -->{./user.username}<!-- ENDIF ./user.fullname -->]]">
+		<a class="d-inline-block position-relative text-decoration-none" href="{{{ if ./user.userslug }}}{config.relative_path}/user/{./user.userslug}{{{ else }}}#{{{ end }}}" aria-label="[[aria:profile-page-for, {./user.displayname}]]">
 			{buildAvatar(posts.user, "48px", true, "", "user/picture")}
 			<span component="user/status" class="position-absolute translate-middle-y border border-white border-2 rounded-circle status {posts.user.status}"><span class="visually-hidden">[[global:{posts.user.status}]]</span></span>
 		</a>
@@ -15,7 +15,7 @@
 	<div class="post-container d-flex gap-2 flex-grow-1 flex-column w-100" style="min-width:0;">
 		<div class="d-flex align-items-start justify-content-between gap-1 flex-nowrap w-100 post-header" itemprop="author" itemscope itemtype="https://schema.org/Person">
 			<div class="d-flex gap-1 flex-wrap align-items-center">
-				<meta itemprop="name" content="<!-- IF ./user.fullname -->{./user.fullname}<!-- ELSE -->{./user.username}<!-- ENDIF ./user.fullname -->">
+				<meta itemprop="name" content="{./user.displayname}">
 				{{{ if ./user.userslug }}}<meta itemprop="url" content="{config.relative_path}/user/{./user.userslug}">{{{ end }}}
 
 				<div class="bg-body d-sm-none">
@@ -24,8 +24,8 @@
 						<span component="user/status" class="position-absolute translate-middle-y border border-white border-2 rounded-circle status {posts.user.status}"><span class="visually-hidden">[[global:{posts.user.status}]]</span></span>
 					</a>
 				</div>
-				
-				<a class="fw-bold text-nowrap" href="{{{ if ./user.userslug }}}{config.relative_path}/user/{./user.userslug}{{{ else }}}#{{{ end }}}" data-username="<!-- IF posts.user.fullname -->{posts.user.fullname}<!-- ELSE -->{posts.user.username}<!-- ENDIF posts.user.fullname -->" data-uid="{posts.user.uid}"><!-- IF posts.user.fullname -->{posts.user.fullname}<!-- ELSE -->{posts.user.username}<!-- ENDIF posts.user.fullname --></a>
+
+				<a class="fw-bold text-nowrap" href="{{{ if ./user.userslug }}}{config.relative_path}/user/{./user.userslug}{{{ else }}}#{{{ end }}}" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
 
 				{{{ each posts.user.selectedGroups }}}
 				{{{ if posts.user.selectedGroups.slug }}}
@@ -41,7 +41,7 @@
 					<span class="text-muted">{generateWroteReplied(@value, config.timeagoCutoff)}</span>
 
 					<i component="post/edit-indicator" class="fa fa-edit text-muted{{{ if privileges.posts:history }}} pointer{{{ end }}} edit-icon {{{ if !posts.editor.username }}}hidden{{{ end }}}" title="[[global:edited-timestamp, {isoTimeToLocaleString(./editedISO, config.userLang)}]]"></i>
-					<span data-editor="{posts.editor.userslug}" component="post/editor" class="visually-hidden">[[global:last-edited-by, <!-- IF posts.editor.fullname -->{posts.editor.fullname}<!-- ELSE -->{posts.editor.username}<!-- ENDIF posts.editor.fullname -->]] <span class="timeago" title="{isoTimeToLocaleString(posts.editedISO, config.userLang)}"></span></span>
+					<span data-editor="{posts.editor.userslug}" component="post/editor" class="visually-hidden">[[global:last-edited-by, {posts.editor.username}]] <span class="timeago" title="{isoTimeToLocaleString(posts.editedISO, config.userLang)}"></span></span>
 				</div>
 
 				{{{ if posts.user.custom_profile_info.length }}}
@@ -71,7 +71,7 @@
 			{{{ end }}}
 
 			<div class="d-flex flex-wrap {{{ if (hideReplies || !posts.replies.count) }}}justify-content-end{{{ else }}}justify-content-between{{{ end }}}">
-				{{{ if !hideReplies}}}
+				{{{ if !hideReplies }}}
 				<a component="post/reply-count" data-target-component="post/replies/container" href="#" class="d-flex gap-2 align-items-center btn btn-ghost ff-secondary border rounded-1 p-1 text-muted text-decoration-none text-xs {{{ if (!./replies || shouldHideReplyContainer(@value)) }}}hidden{{{ end }}}">
 					<span component="post/reply-count/avatars" class="d-flex gap-1 {{{ if posts.replies.hasMore }}}hasMore{{{ end }}}">
 						{{{each posts.replies.users}}}
@@ -88,8 +88,8 @@
 					<i class="fa fa-fw fa-chevron-down" component="post/replies/open"></i>
 				</a>
 				{{{ end }}}
-				<div component="post/actions" class="d-flex flex-grow-1 justify-content-end gap-1 post-tools" style="opacity:1 !important;">
-					<!--   partials/topic/reactions.tpl -->
+				<div component="post/actions" class="d-flex flex-grow-1 justify-content-end gap-1 post-tools">
+					<!-- IMPORT partials/topic/reactions.tpl -->
 					<a component="post/reply" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:reply]]"><i class="fa fa-fw fa-reply text-primary"></i></a>
 					<a component="post/quote" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:quote]]"><i class="fa fa-fw fa-quote-right text-primary"></i></a>
 

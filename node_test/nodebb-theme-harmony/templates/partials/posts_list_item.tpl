@@ -9,7 +9,8 @@
             <div class="post-author d-flex align-items-center gap-1">
                 <a class="lh-1 text-decoration-none" href="{config.relative_path}/user/{./user.userslug}">{buildAvatar(./user, "16px", true, "not-responsive")}</a>
                 <a class="lh-1 fw-semibold" href="{config.relative_path}/user/{./user.userslug}">
-                <!-- IF ../user.fullname -->{../user.fullname}<!-- ELSE -->{../user.username}<!-- ENDIF ../user.fullname -->
+                <!-- IF ../user.displayname -->{../user.displayname}<!-- ELSE -->{../user.username}
+                <!-- ENDIF ../user.displayname -->
                 </a>
             </div>
             <span class="timeago text-muted lh-1" title="{./timestampISO}"></span>
