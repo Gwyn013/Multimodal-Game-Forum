@@ -18,9 +18,11 @@
 		-->
 		{{{ end }}}
 		{{{ end }}}
+		<!--
 		{{{ if canEdit }}}
 		<a href="{config.relative_path}/user/{userslug}/bookmarks" class="btn btn-ghost btn-sm ff-secondary fw-semibold {{{ if template.account/bookmarks }}}active{{{ end }}}">[[user:bookmarks]]</a>
 		{{{ end }}}
+		-->
 	</div>
 </div>
 
