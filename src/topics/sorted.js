@@ -1,4 +1,3 @@
-
 'use strict';
 
 const _ = require('lodash');
@@ -9,6 +8,7 @@ const user = require('../user');
 const categories = require('../categories');
 const meta = require('../meta');
 const plugins = require('../plugins');
+const { getUsersSortedByReputation } = require('../controllers/users');
 
 module.exports = function (Topics) {
 	Topics.getSortedTopics = async function (params) {
@@ -77,6 +77,7 @@ module.exports = function (Topics) {
 			posts: 'topics:posts',
 			votes: 'topics:votes',
 			views: 'topics:views',
+			yuan:  'topics:votes',
 		};
 		if (map.hasOwnProperty(sort)) {
 			return map[sort];
@@ -175,7 +176,7 @@ module.exports = function (Topics) {
 		const { sortMap, fields } = await plugins.hooks.fire('filter:topics.sortOptions', {
 			params,
 			fields: [
-				'tid', 'timestamp', 'lastposttime', 'upvotes', 'downvotes', 'postcount', 'pinned',
+				'tid', 'timestamp', 'lastposttime', 'upvotes', 'downvotes', 'postcount', 'pinned', 'viewcount',
 			],
 			sortMap: {
 				recent: sortRecent,
@@ -184,6 +185,7 @@ module.exports = function (Topics) {
 				posts: sortPopular,
 				votes: sortVotes,
 				views: sortViews,
+				yuan: sortYuan,
 			},
 		});
 
@@ -233,6 +235,14 @@ module.exports = function (Topics) {
 	function sortViews(a, b) {
 		return b.viewcount - a.viewcount;
 	}
+
+
+	function sortYuan(a, b) {
+		// add viewcount
+
+		return ((b.votes+b.postcount)*10+b.viewcount) - ((a.votes+a.postcount)*10+a.viewcount);	
+	}
+
 
 	async function filterTids(tids, params) {
 		const { filter } = params;

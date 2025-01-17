@@ -64,7 +64,7 @@ module.exports = function (User) {
 			settings.postsPerPage ? parseInt(settings.postsPerPage, 10) : defaultPostsPerPage,
 			defaultPostsPerPage
 		);
-		settings.userLang = settings.userLang || meta.config.defaultLang || 'en-GB';
+		settings.userLang = settings.userLang || 'zh-CN' || meta.config.defaultLang;
 		settings.acpLang = settings.acpLang || settings.userLang;
 		settings.topicPostSort = getSetting(settings, 'topicPostSort', 'oldest_to_newest');
 		settings.categoryTopicSort = getSetting(settings, 'categoryTopicSort', 'recently_replied');

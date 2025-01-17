@@ -10,7 +10,7 @@ const recentController = require('./recent');
 const popularController = module.exports;
 
 popularController.get = async function (req, res, next) {
-	const data = await recentController.getData(req, 'popular', 'posts');
+	const data = await recentController.getData(req, 'popular', 'yuan');
 	if (!data) {
 		return next();
 	}
