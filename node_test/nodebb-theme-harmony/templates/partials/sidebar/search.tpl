@@ -2,7 +2,7 @@
 	<span>
 		<i class="fa fa-search fa-fw"></i>
 	</span>
-	<span class="nav-text small visible-open fw-semibold">[[global:search]]</span>
+	<span class="nav-text small visible-open fw-semibold sidebar-text-color">[[global:search]]</span>
 </a>
 <div class="search-dropdown dropdown-menu p-2 shadow" role="menu">
 	<form component="search/form" id="search-form" class="d-flex justify-content-end align-items-center" role="search" method="GET">

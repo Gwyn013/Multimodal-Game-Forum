@@ -1,3 +1,4 @@
+<!-- IMPORT account/posts.tpl -->
 <!-- IMPORT partials/account/header.tpl -->
 
 <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">

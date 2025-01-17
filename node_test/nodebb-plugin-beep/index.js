@@ -8,15 +8,7 @@ var translator = require.main.require('./src/translator');
 var toRegExp = require('./lib/toRegExp');
 var parseContent = require('./lib/parseContent');
 
-var defaultBanList = ['死','灭门','诅咒','丧尸','丧事','丧葬','纸钱','烧','骚','lxhy','阿里','阿里巴巴','ali','alibaba','容嬷嬷','骡子','骡子妈','茶叶','茶推','绿茶男','鸡婆','唧唧','唧唧妈','壮壮','壮壮妈','超雄','超雄妈','大桃浦','屎婆','皇族解','便便妈','大便','恨嫁','中螂将','甘宁娘','海带','云姐','厨子','大便','抠搜','尿','屁','屎','乱伦','孽种','畜','鳏','蛋','球','寡','灵犀互娱','灵犀','西湖','耀祖','三国','评分','商店','地下偶像','地偶','黄油','黄游','宅男','Zng','孙笑川','荒原曙光','魂蛋','双魂成行','网易','逆水寒','顺火暖','启动','玉玉','地下宅','寻人','双魂','亡鸟','小萌','停氪','退游','维权','未成年','Wcn','极端','道德绑架','吉堡','吉吉','阳阳','冥灯','高管','周某','樊某','樊路远',
-	'anal', 'anus', 'arse', 'ass', 'ballsack', 'balls', 'bastard', 'bitch', 'biatch', 'bloody',
-	'blowjob', 'blow job', 'bollock', 'bollok', 'boner', 'boob', 'bugger', 'bum', 'butt', 'buttplug',
-	'clitoris', 'cock', 'coon', 'crap', 'cunt', 'damn', 'dick', 'dildo', 'dyke', 'fag', 'feck',
-	'fellate', 'fellatio', 'felching', 'fuck', 'f u c k', 'fudgepacker', 'fudge packer', 'flange',
-	'homo', 'jerk', 'jizz', 'knobend', 'knob end', 'labia', 'muff', 'nigger', 'nigga', 'penis',
-	'piss', 'poop', 'prick', 'pube', 'pussy', 'queer', 'sex', 'shit', 's hit', 'sh1t', 'slut',
-	'smegma', 'spunk', 'tit', 'tosser', 'turd', 'twat', 'vagina', 'wank', 'whore',
-];
+var defaultBanList = [];
 
 var Beep = {
 	banned_words_raw: '',

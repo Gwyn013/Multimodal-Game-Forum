@@ -31,7 +31,7 @@
 					<option value="topics">[[search:show-results-as-topics]]</option>
 				</select>
 
-				<button type="submit" class="btn btn-primary fw-semibold form-control py-2 px-3">[[global:search]]</button>
+				<button type="submit" class="btn btn-primary form-control py-2 px-3">[[global:search]]</button>
 			</form>
 		</div>
 

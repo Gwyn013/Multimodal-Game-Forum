@@ -1,4 +1,4 @@
-<div class="d-flex flex-wrap gap-2 align-items-center" component="search/filters">
+<div class="d-flex flex-wrap gap-2 align-items-center text-primary" component="search/filters">
 	<!-- category filter -->
 	<div class="post-search-item">
 		<div component="category/filter" class="dropdown" data-filter-name="category">
@@ -170,7 +170,7 @@
 	<!-- save & reset preferences -->
 	<div class="post-search-item">
 		<div class="dropdown">
-			<a class="btn btn-light btn-sm border border-gray-300 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[[search:save]] <span class="caret text-primary opacity-75"></span>
+			<a class="btn btn-light btn-sm border border-gray-300 dropdown-toggle text-primary" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[[search:save]] <span class="caret text-primary opacity-75"></span>
 			</a>
 
 			<ul class="dropdown-menu p-1 text-sm" style="width: 300px;" role="menu">

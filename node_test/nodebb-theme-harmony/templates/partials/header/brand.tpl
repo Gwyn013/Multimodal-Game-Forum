@@ -1,6 +1,6 @@
 {{{ if (brand:logo || (config.showSiteTitle || widgets.brand-header.length)) }}}
-<div class="container-lg px-md-4 brand-container">
-	<div class="col-12 d-flex border-bottom pb-3 {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}">
+<div class="container-fluid px-md-4 brand-container brand-with-background">
+	<div class="col-12 d-flex border-bottom pb-3 {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}} custom-min-height">
 		{{{ if (brand:logo || config.showSiteTitle) }}}
 		<div component="brand/wrapper" class="d-flex align-items-center gap-3 p-2 rounded-1 align-content-stretch ">
 			{{{ if brand:logo }}}
@@ -11,7 +11,7 @@
 
 			{{{ if config.showSiteTitle }}}
 			<a component="siteTitle" class="text-truncate align-self-stretch align-items-center d-flex" href="{{{ if title:url }}}{title:url}{{{ else }}}{relative_path}/{{{ end }}}">
-				<h1 class="fs-6 fw-bold text-body mb-0">{config.siteTitle}</h1>
+				<h1 class="fs-6 fw-bold custom-title-color mb-0 custom-title-bottom">{config.siteTitle}</h1>
 			</a>
 			{{{ end }}}
 		</div>

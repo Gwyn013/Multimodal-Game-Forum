@@ -6,7 +6,6 @@
 		<a href="{config.relative_path}/user/{userslug}/posts" class="btn btn-ghost btn-sm ff-secondary fw-semibold {{{ if template.account/posts }}}active{{{ end }}}">[[global:header.recent]]</a>
 		{{{ if !reputation:disabled }}}
 		<a href="{config.relative_path}/user/{userslug}/best"class="btn btn-ghost btn-sm ff-secondary fw-semibold {{{ if template.account/best }}}active{{{ end }}}">[[global:best]]</a>
-		<!--
 		<a href="{config.relative_path}/user/{userslug}/controversial" class="btn btn-ghost btn-sm ff-secondary fw-semibold {{{ if template.account/controversial }}}active{{{ end }}}">[[global:controversial]]</a>
 
 		{{{ if canEdit }}}
@@ -15,7 +14,6 @@
 		{{{ if !downvote:disabled }}}
 		<a href="{config.relative_path}/user/{userslug}/downvoted" class="btn btn-ghost btn-sm ff-secondary fw-semibold {{{ if template.account/downvoted }}}active{{{ end }}}">[[global:downvoted]]</a>
 		{{{ end }}}
-		-->
 		{{{ end }}}
 		{{{ end }}}
 		<!--

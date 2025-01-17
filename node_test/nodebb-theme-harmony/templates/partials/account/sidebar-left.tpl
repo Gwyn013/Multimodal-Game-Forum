@@ -15,6 +15,7 @@
 			{{{ if template.account/best }}}active{{{ end }}}
 			{{{ if template.account/upvoted }}}active{{{ end }}}">
 			<div class="flex-grow-1">我的帖子</div>
+
 			<span class="flex-shrink-0 text-xs" title="{counts.posts}">{humanReadableNumber(counts.posts)}</span>
 		</a>
 
@@ -25,7 +26,6 @@
 			<div class="flex-grow-1">[[global:header.drafts]]</div>
 			<span component="drafts/count" class="flex-shrink-0 text-xs">0</span>
 		</a>
-
 
 		<div class="d-flex flex-column">
 			<button class="btn btn-ghost btn-sm d-flex gap-2 align-items-center" style="width:100%;" type="button" data-bs-toggle="collapse"
@@ -48,12 +48,13 @@
 			</div>
 		</div>
 		<!--
+
 		<a href="{config.relative_path}/user/{userslug}/groups" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/groups }}}active{{{ end }}}">
 			<div class="flex-grow-1">[[global:header.groups]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.groups}">{humanReadableNumber(counts.groups)}</span>
 		</a>
-		-->
+
 		<a href="{config.relative_path}/user/{userslug}/followers" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/followers }}}active{{{ end }}}">
 			<div class="flex-grow-1">我的粉丝</div>
@@ -67,13 +68,15 @@
 		</a>
 
 		{{{ if canEdit }}}
-		<!--
 		<a href="{config.relative_path}/user/{userslug}/categories" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/categories }}}active{{{ end }}}">
 			<div class="flex-grow-1">[[user:watched-categories]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.categoriesWatched}">{counts.categoriesWatched}</span>
 		</a>
+
 		-->
+
+
 		{{{ if isSelf }}}
 		<a href="{config.relative_path}/user/{userslug}/tags" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/tags }}}active{{{ end }}}">
@@ -87,23 +90,23 @@
 			<div class="flex-grow-1">[[user:blocked-users]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.blocks}">{humanReadableNumber(counts.blocks)}</span>
 		</a>
-		<!--
+
 		<a href="{config.relative_path}/user/{userslug}/uploads" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/uploads }}}active{{{ end }}}">
 			<div class="flex-grow-1">[[global:uploads]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.uploaded}">{humanReadableNumber(counts.uploaded)}</span>
 		</a>
-		-->
 		{{{ end }}}
 
 		{{{ if (loggedIn && (!isSelf && !banned)) }}}
 		<hr class="w-100 my-2"/>
+
 		<!--
+
 		<a href="#" component="account/flag" class="btn btn-ghost btn-sm ff-secondary d-flex align-items-center gap-2 text-start">
 			<i class="flex-shrink-0 fa-solid fa-flag text-danger"></i>
 			<div class="flex-grow-1 text-nowrap">[[user:flag-profile]]</div>
 		</a>
-		-->
 		<a href="#" component="account/block" class="btn btn-ghost btn-sm ff-secondary d-flex align-items-center gap-2 text-start {{{ if isBlocked }}}hidden{{{ end }}}">
 			<i class="flex-shrink-0 fa-solid fa-ban text-danger"></i>
 			<div class="flex-grow-1 text-nowrap">[[user:block-user]]</div>

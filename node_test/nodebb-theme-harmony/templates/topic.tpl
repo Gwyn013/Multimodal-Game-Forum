@@ -24,7 +24,7 @@
 	<div class="d-flex flex-column gap-3">
 		<div class="d-flex flex-wrap">
 			<div class="d-flex flex-column gap-3 flex-grow-1">
-				<h1 component="post/header" class="tracking-tight fw-semibold fs-3 mb-0 text-break {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}">
+				<h1 component="post/header" class="tracking-tight fw-semibold fs-3 mb-0 text-break post-content {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}">
 					<span class="topic-title" component="topic/title">{title}</span>
 				</h1>
 

@@ -33,7 +33,7 @@
     "share": "分享",
     "tools": "工具",
     "locked": "已锁定",
-    "pinned": "已固定",
+    "pinned": "已置顶",
     "pinned-with-expiry": "置顶直到 %1",
     "scheduled": "已定时",
     "deleted": "删除",

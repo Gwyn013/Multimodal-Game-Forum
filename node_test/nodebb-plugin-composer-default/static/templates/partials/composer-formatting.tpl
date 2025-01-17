@@ -24,7 +24,7 @@
 							</ul>
 						</li>
 					{{{ else }}}
-						<li title="{./title}">
+						<li title="{./title}" class="{./name}">
 							<button data-format="{./name}" class="btn btn-sm btn-link text-reset position-relative" aria-label="{./title}">
 								<i class="{./className}"></i>
 								{{{ if ./badge }}}
@@ -37,13 +37,14 @@
 			{{{ end }}}
 		{{{ end }}}
 
-		{{{ if canUploadImage }}}
+		
 		<li title="[[modules:composer.upload-picture]]">
 			<button data-format="picture" class="img-upload-btn btn btn-sm btn-link text-reset" aria-label="[[modules:composer.upload-picture]]">
 				<i class="fa fa-file-image-o"></i>
 			</button>
 		</li>
-		{{{ end }}}
+		<!--{{{ if canUploadImage }}}
+		{{{ end }}}-->
 
 		{{{ if canUploadFile }}}
 		<li title="[[modules:composer.upload-file]]">

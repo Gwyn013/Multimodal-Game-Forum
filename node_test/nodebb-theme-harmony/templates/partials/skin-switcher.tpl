@@ -5,7 +5,7 @@
 				<span>
 					<i component="skinSwitcher/icon" class="fa fa-fw fa-paintbrush"></i>
 				</span>
-				<span class="nav-text small visible-open fw-semibold">[[themes/harmony:skins]]</span>
+				<span class="nav-text small visible-open fw-semibold sidebar-text-color">[[themes/harmony:skins]]</span>
 			</span>
 		</span>
 	</a>
