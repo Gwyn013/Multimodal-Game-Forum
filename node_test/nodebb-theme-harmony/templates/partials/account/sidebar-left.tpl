@@ -3,52 +3,23 @@
 		<a href="{config.relative_path}/user/{userslug}" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold {{{ if template.account/profile }}}active{{{ end }}}">
 			<div class="flex-grow-1">[[global:about]]</div>
 		</a>
-
-		<a href="{config.relative_path}/user/{userslug}/topics"class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
-			{{{ if template.account/topics }}}active{{{ end }}}">
-			<div class="flex-grow-1">我的主题</div>
-			<span class="flex-shrink-0 text-xs" title="{counts.topics}">{humanReadableNumber(counts.topics)}</span>
-		</a>
-
 		<a href="{config.relative_path}/user/{userslug}/posts"class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/posts }}}active{{{ end }}}
 			{{{ if template.account/best }}}active{{{ end }}}
-			{{{ if template.account/upvoted }}}active{{{ end }}}">
-			<div class="flex-grow-1">我的帖子</div>
-
+			{{{ if template.account/controversial }}}active{{{ end }}}
+			{{{ if template.account/upvoted }}}active{{{ end }}}
+			{{{ if template.account/downvoted }}}active{{{ end }}}
+			{{{ if template.account/bookmarks }}}active{{{ end }}}">
+			<div class="flex-grow-1">[[global:posts]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.posts}">{humanReadableNumber(counts.posts)}</span>
 		</a>
-
-
-		<!-- Add drafts -->
-		<a href="{config.relative_path}/user/{userslug}/uploads"class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
-			{{{ if template.account/uploads }}}active{{{ end }}}">
-			<div class="flex-grow-1">[[global:header.drafts]]</div>
-			<span component="drafts/count" class="flex-shrink-0 text-xs">0</span>
+		<a href="{config.relative_path}/user/{userslug}/topics" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
+			{{{ if template.account/topics }}}active{{{ end }}}
+			{{{ if template.account/watched }}}active{{{ end }}}
+			{{{ if template.account/ignored }}}active{{{ end }}}">
+			<div class="flex-grow-1">[[global:topics]]</div>
+			<span class="flex-shrink-0 text-xs" title="{counts.topics}">{humanReadableNumber(counts.topics)}</span>
 		</a>
-
-		<div class="d-flex flex-column">
-			<button class="btn btn-ghost btn-sm d-flex gap-2 align-items-center" style="width:100%;" type="button" data-bs-toggle="collapse"
-			data-bs-target="#collapseDashboard" aria-expanded="true" aria-controls="collapseDashboard">我的收藏</button>
-
-			<div id="collapseDashboard" class="accordion-collapse collapse" data-bs-parent="#accordionACP">
-				<div class="accordion-body p-0 d-grid" style="padding-left:20px !important;">
-					<a href="{config.relative_path}/user/{userslug}/watched" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
-						{{{ if template.account/watched }}}active{{{ end }}}">
-						<div class="flex-grow-1">我收藏的主题</div>
-						<span class="flex-shrink-0 text-xs" title="{counts.topics}">{humanReadableNumber(counts.topics)}</span>
-					</a>
-		
-					<a href="{config.relative_path}/user/{userslug}/bookmarks"class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
-						{{{ if template.account/bookmarks }}}active{{{ end }}}">
-						<div class="flex-grow-1">我收藏的帖子</div>
-						<span class="flex-shrink-0 text-xs" title="{counts.bookmarks}">{humanReadableNumber(counts.bookmarks)}</span>
-					</a>
-				</div>
-			</div>
-		</div>
-		<!--
-
 		<a href="{config.relative_path}/user/{userslug}/groups" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/groups }}}active{{{ end }}}">
 			<div class="flex-grow-1">[[global:header.groups]]</div>
@@ -57,13 +28,13 @@
 
 		<a href="{config.relative_path}/user/{userslug}/followers" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/followers }}}active{{{ end }}}">
-			<div class="flex-grow-1">我的粉丝</div>
+			<div class="flex-grow-1">[[user:followers]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.followers}">{humanReadableNumber(counts.followers)}</span>
 		</a>
 
 		<a href="{config.relative_path}/user/{userslug}/following" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/following }}}active{{{ end }}}">
-			<div class="flex-grow-1">我的关注</div>
+			<div class="flex-grow-1">[[user:following]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.following}">{humanReadableNumber(counts.following)}</span>
 		</a>
 
@@ -73,14 +44,10 @@
 			<div class="flex-grow-1">[[user:watched-categories]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.categoriesWatched}">{counts.categoriesWatched}</span>
 		</a>
-
-		-->
-
-
 		{{{ if isSelf }}}
 		<a href="{config.relative_path}/user/{userslug}/tags" class="btn btn-ghost btn-sm text-start ff-secondary fw-semibold d-flex gap-2 align-items-center
 			{{{ if template.account/tags }}}active{{{ end }}}">
-			<div class="flex-grow-1">我的Tag</div>
+			<div class="flex-grow-1">[[user:watched-tags]]</div>
 			<span class="flex-shrink-0 text-xs" title="{counts.tagsWatched}">{counts.tagsWatched}</span>
 		</a>
 		{{{ end }}}
@@ -100,9 +67,6 @@
 
 		{{{ if (loggedIn && (!isSelf && !banned)) }}}
 		<hr class="w-100 my-2"/>
-
-		<!--
-
 		<a href="#" component="account/flag" class="btn btn-ghost btn-sm ff-secondary d-flex align-items-center gap-2 text-start">
 			<i class="flex-shrink-0 fa-solid fa-flag text-danger"></i>
 			<div class="flex-grow-1 text-nowrap">[[user:flag-profile]]</div>
