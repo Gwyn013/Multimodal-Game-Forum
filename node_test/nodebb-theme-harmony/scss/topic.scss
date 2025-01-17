@@ -127,7 +127,7 @@ body.template-topic {
 	}
 
 
-	[component="topic/thumb/list"] > a{
+	[component="topic/thumb/list"] {
 		height: calc($font-size-base * 4);
 	}
 }

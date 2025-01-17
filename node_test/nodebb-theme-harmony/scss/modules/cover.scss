@@ -10,8 +10,10 @@
 	left: auto;
 	right: 0px;
 
-	&:hover .controls, .controls:focus-within {
-		opacity: 1;
+	&:hover {
+		.controls {
+			opacity: 1;
+		}
 	}
 
 	.controls {
