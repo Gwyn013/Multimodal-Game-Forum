@@ -20,7 +20,7 @@
 				{{{ end }}}
 			</div>
 			<div class="flex-grow-1 d-flex flex-wrap gap-1 position-relative">
-				<h3 component="topic/header" class="title text-break fs-5 fw-semibold m-0 tracking-tight w-100 {{{ if showSelect }}}me-4 me-lg-0{{{ end }}}">
+				<h3 component="topic/header" class="title text-break fs-5 fw-semibold m-0 tracking-tight w-100 post-content {{{ if showSelect }}}me-4 me-lg-0{{{ end }}}">
 					<a class="text-reset" href="{{{ if topics.noAnchor }}}#{{{ else }}}{config.relative_path}/topic/{./slug}{{{ if ./bookmark }}}/{./bookmark}{{{ end }}}{{{ end }}}">{./title}</a>
 				</h3>
 				<span component="topic/labels" class="d-flex flex-wrap gap-1 w-100">
@@ -55,10 +55,15 @@
 					{{{ end }}}
 
 					<span data-tid="{./tid}" component="topic/tags" class="lh-1 tag-list hidden-xs d-flex flex-wrap gap-1 {{{ if !./tags.length }}}hidden{{{ end }}}">
-						{{{ each ./tags }}}
-						<a href="{config.relative_path}/tags/{./valueEncoded}"><span class="badge border border-gray-300 fw-normal tag tag-class-{./class}" data-tag="{./value}">{./valueEscaped}</span></a>
-						{{{ end }}}
+    					{{{ each ./tags }}}
+        					<a href="{config.relative_path}/tags/{./valueEncoded}">
+            					<span class="badge border border-gray-300 fw-normal tag tag-class-{./class}" data-tag="{./value}">
+                					{./valueEscaped} ({{./count}})
+            					</span>
+        					</a>
+    					{{{ end }}}
 					</span>
+
 
 					<div class="d-flex gap-1 d-block d-lg-none w-100">
 						<span class="badge text-body border stats text-xs text-muted">
@@ -88,27 +93,27 @@
 		<div class="d-flex p-0 col-lg-5 col-12 align-content-stretch">
 			<div class="meta stats d-none d-lg-grid col-6 gap-1 pe-2 text-muted" style="grid-template-columns: 1fr 1fr 1fr;">
 				{{{ if !reputation:disabled }}}
-				<div class="stats-votes card card-header border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center">
-					<span class="fs-5 ff-secondary lh-1" title="{./votes}">{humanReadableNumber(./votes, 0)}</span>
-					<span class="d-none d-xl-flex text-lowercase text-xs">[[global:votes]]</span>
-					<i class="d-xl-none fa fa-fw text-xs text-muted opacity-75 fa-chevron-up"></i>
+				<div class="stats-votes card card-header card_background border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center">
+					<span class="fs-5 ff-secondary lh-1 text_icon" title="{./votes}">{humanReadableNumber(./votes, 0)}</span>
+					<span class="d-none d-xl-flex text-lowercase text-xs text_icon">[[global:votes]]</span>
+					<i class="d-xl-none fa fa-fw text-xs text-muted opacity-75 fa-chevron-up text_icon"></i>
 				</div>
 				{{{ end }}}
-				<div class="stats-postcount card card-header border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center">
-					<span class="fs-5 ff-secondary lh-1" title="{./postcount}">{humanReadableNumber(./postcount, 0)}</span>
-					<span class="d-none d-xl-flex text-lowercase text-xs">[[global:posts]]</span>
-					<i class="d-xl-none fa-regular fa-fw text-xs text-muted opacity-75 fa-message"></i>
+				<div class="stats-postcount card card-header card_background border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center">
+					<span class="fs-5 ff-secondary lh-1 text_icon" title="{./postcount}">{humanReadableNumber(./postcount, 0)}</span>
+					<span class="d-none d-xl-flex text-lowercase text-xs text_icon">[[global:posts]]</span>
+					<i class="d-xl-none fa-regular fa-fw text-xs text-muted opacity-75 fa-message text_icon"></i>
 				</div>
-				<div class="stats-viewcount card card-header border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center">
-					<span class="fs-5 ff-secondary lh-1" title="{./viewcount}">{humanReadableNumber(./viewcount, 0)}</span>
-					<span class="d-none d-xl-flex text-lowercase text-xs">[[global:views]]</span>
-					<i class="d-xl-none fa fa-fw text-xs text-muted opacity-75 fa-eye"></i>
+				<div class="stats-viewcount card card-header card_background border-0 p-2 overflow-hidden rounded-1 d-flex flex-column align-items-center">
+					<span class="fs-5 ff-secondary lh-1 text_icon" title="{./viewcount}">{humanReadableNumber(./viewcount, 0)}</span>
+					<span class="d-none d-xl-flex text-lowercase text-xs text_icon">[[global:views]]</span>
+					<i class="d-xl-none fa fa-fw text-xs text-muted opacity-75 fa-eye text_icon"></i>
 				</div>
 			</div>
 			<div component="topic/teaser" class="meta teaser col-lg-6 col-12 {{{ if !config.theme.mobileTopicTeasers }}}d-none d-lg-block{{{ end }}}">
 				<div class="lastpost border-start border-2 lh-sm h-100 d-flex flex-column gap-1" style="border-color: {./category.bgColor}!important;">
 					{{{ if ./unreplied }}}
-					<div class="ps-2 text-xs">
+					<div class="ps-2 text-xs no-replies">
 						[[category:no-replies]]
 					</div>
 					{{{ else }}}

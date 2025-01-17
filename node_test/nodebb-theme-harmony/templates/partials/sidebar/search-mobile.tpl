@@ -1,6 +1,6 @@
 <a component="search/button" id="search-button" href="#" role="button" class="nav-link text-truncate" data-bs-toggle="dropdown" title="[[global:header.search]]" aria-haspopup="true" aria-expanded="false">
 	<i class="fa fa-search fa-fw"></i>
-	<span class="nav-text visible-open px-2 fw-semibold">[[global:search]]</span>
+	<span class="nav-text visible-open px-2 fw-semibold sidebar-text-color">[[global:search]]</span>
 </a>
 <div class="search-dropdown dropdown-menu p-2 shadow" role="menu">
 	<form component="search/form" id="search-form" class="d-flex justify-content-end align-items-center" role="search" method="GET">

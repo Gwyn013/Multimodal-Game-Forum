@@ -5,7 +5,7 @@
 			<span class="position-relative">
 				<i class="fa fa-fw fa-sign-in"></i>
 			</span>
-			<span class="nav-text small visible-open fw-semibold">[[global:login]]</span>
+			<span class="nav-text small visible-open fw-semibold sidebar-text-color">[[global:login]]</span>
 		</span>
 	</a>
 </li>
@@ -18,7 +18,7 @@
 			<span class="position-relative">
 				<i class="fa fa-fw fa-user-plus"></i>
 			</span>
-			<span class="nav-text small visible-open fw-semibold">[[global:register]]</span>
+			<span class="nav-text small visible-open fw-semibold sidebar-text-color">[[global:register]]</span>
 		</span>
 	</a>
 </li>
@@ -34,7 +34,7 @@
 <li component="sidebar/search" class="visible-open nav-item mx-2 search">
 	<div class="d-flex gap-2 py-1 px-2 align-items-center" title="[[themes/harmony:login-register-to-search]]">
 		<i class="fa fa-fw fa-search"></i>
-		<span class="nav-text visible-open text-xs">[[themes/harmony:login-register-to-search]]</span>
+		<span class="nav-text visible-open text-xs sidebar-text-color">[[themes/harmony:login-register-to-search]]</span>
 	</div>
 </li>
 {{{ end }}}

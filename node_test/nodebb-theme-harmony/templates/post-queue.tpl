@@ -102,9 +102,9 @@
 							</div>
 							<div class="small">
 								{{{ if posts.user.userslug}}}
-								<a class="text-decoration-none" href="{config.relative_path}/uid/{posts.user.uid}">{buildAvatar(posts.user, "24px", true, "not-responsive")} <!-- IF posts.user.fullname -->{posts.user.fullname}<!-- ELSE -->{posts.user.username}<!-- ENDIF posts.user.fullname --></a>
+								<a class="text-decoration-none" href="{config.relative_path}/uid/{posts.user.uid}">{buildAvatar(posts.user, "24px", true, "not-responsive")} {posts.user.username}</a>
 								{{{ else }}}
-								<!-- IF posts.user.fullname -->{posts.user.fullname}<!-- ELSE -->{posts.user.username}<!-- ENDIF posts.user.fullname -->
+								{posts.user.username}
 								{{{ end }}}
 							</div>
 							<div>

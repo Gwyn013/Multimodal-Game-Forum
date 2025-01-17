@@ -25,7 +25,13 @@ module.exports = function (Posts) {
 		userData.forEach((userData, index) => {
 			userData.signature = validator.escape(String(userData.signature || ''));
 			userData.fullname = userSettings[index].showfullname ? validator.escape(String(userData.fullname || '')) : undefined;
-			userData.selectedGroups = [];
+			 // Ensure selectedGroups is an array before slicing, and limit it to 3 items
+			 if (Array.isArray(userData.selectedGroups)) {
+				userData.selectedGroups = userData.selectedGroups.slice(0, 3);
+			} else {
+				// If selectedGroups is undefined or not an array, initialize it as an empty array
+				userData.selectedGroups = [];
+			}
 
 			if (meta.config.hideFullname) {
 				userData.fullname = undefined;

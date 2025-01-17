@@ -140,6 +140,13 @@ module.exports = function (Topics) {
 				postObj.replies = replies[i];
 				postObj.selfPost = parseInt(uid, 10) > 0 && parseInt(uid, 10) === postObj.uid;
 
+				// Ensure that selectedGroups is limited to the first 3 groups
+				if (Array.isArray(postObj.user.selectedGroups)) {
+					postObj.user.selectedGroups = postObj.user.selectedGroups.slice(0, 3);
+				} else {
+					postObj.user.selectedGroups = [];
+				}
+
 				// Username override for guests, if enabled
 				if (meta.config.allowGuestHandles && postObj.uid === 0 && postObj.handle) {
 					postObj.user.username = validator.escape(String(postObj.handle));
