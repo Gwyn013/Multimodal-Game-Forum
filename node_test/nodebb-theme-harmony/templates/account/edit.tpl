@@ -7,12 +7,11 @@
 <div class="row">
 	<div class="col-xl-6 col-12">
 		<form role="form" component="profile/edit/form">
-			<!--
 			<div class="mb-3">
 				<label class="form-label fw-bold" for="fullname">[[user:fullname]]</label>
 				<input class="form-control" type="text" id="fullname" name="fullname" placeholder="[[user:fullname]]" value="{fullname}">
 			</div>
-			-->
+
 			<div class="mb-3">
 				<label class="form-label fw-bold" for="birthday">[[user:birthday]]</label>
 				<input class="form-control" type="date" id="birthday" name="birthday" value="{birthday}" placeholder="mm/dd/yyyy">
