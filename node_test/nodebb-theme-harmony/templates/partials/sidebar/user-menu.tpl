@@ -1,6 +1,6 @@
 <a component="header/avatar" id="user_dropdown" href="#" role="button" class="nav-link d-flex gap-2 align-items-center text-truncate" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="[[user:user-menu]]">
 	{buildAvatar(user, "20px", true)}
-	<span id="user-header-name" class="nav-text small visible-open fw-semibold">{user.username}</span>
+	<span id="user-header-name" class="nav-text small visible-open fw-semibold sidebar-text-color">{user.username}</span>
 </a>
 <ul id="user-control-list" component="header/usercontrol" class="overscroll-behavior-contain user-dropdown dropdown-menu shadow p-1 text-sm ff-base" role="menu">
 	<li>
@@ -42,17 +42,17 @@
 	<li role="presentation" class="dropdown-divider"></li>
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" href="{relative_path}/user/{user.userslug}/bookmarks" role="menuitem">
-			<i class="fa fa-fw fa-bookmark text-secondary"></i> <span>[[user:bookmarks]]</span>
+			<i class="fa fa-fw fa-bookmark text-secondary fa-color"></i> <span>[[user:bookmarks]]</span>
 		</a>
 	</li>
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" component="header/profilelink/edit" href="{relative_path}/user/{user.userslug}/edit" role="menuitem">
-			<i class="fa fa-fw fa-edit text-secondary"></i> <span>[[user:edit-profile]]</span>
+			<i class="fa fa-fw fa-edit text-secondary fa-color"></i> <span>[[user:edit-profile]]</span>
 		</a>
 	</li>
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" component="header/profilelink/settings" href="{relative_path}/user/{user.userslug}/settings" role="menuitem">
-			<i class="fa fa-fw fa-gear text-secondary"></i> <span>[[user:settings]]</span>
+			<i class="fa fa-fw fa-gear text-secondary fa-color"></i> <span>[[user:settings]]</span>
 		</a>
 	</li>
 	{{{ if showModMenu }}}
@@ -60,31 +60,31 @@
 	<li><h6 class="dropdown-header text-xs">[[pages:moderator-tools]]</h6></li>
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" href="{relative_path}/flags" role="menuitem">
-			<i class="fa fa-fw fa-flag text-secondary"></i> <span>[[pages:flagged-content]]</span>
+			<i class="fa fa-fw fa-flag text-secondary fa-color"></i> <span>[[pages:flagged-content]]</span>
 		</a>
 	</li>
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" href="{relative_path}/post-queue" role="menuitem">
-			<i class="fa fa-fw fa-list-alt text-secondary"></i> <span>[[pages:post-queue]]</span>
+			<i class="fa fa-fw fa-list-alt text-secondary fa-color"></i> <span>[[pages:post-queue]]</span>
 		</a>
 	</li>
 	{{{ if registrationQueueEnabled }}}
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" href="{relative_path}/registration-queue" role="menuitem">
-			<i class="fa fa-fw fa-list-alt text-secondary"></i> <span>[[pages:registration-queue]]</span>
+			<i class="fa fa-fw fa-list-alt text-secondary fa-color"></i> <span>[[pages:registration-queue]]</span>
 		</a>
 	</li>
 	{{{ end }}}
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" href="{relative_path}/ip-blacklist" role="menuitem">
-			<i class="fa fa-fw fa-ban text-secondary"></i> <span>[[pages:ip-blacklist]]</span>
+			<i class="fa fa-fw fa-ban text-secondary fa-color"></i> <span>[[pages:ip-blacklist]]</span>
 		</a>
 	</li>
 	{{{ else }}}
 	{{{ if postQueueEnabled }}}
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2" href="{relative_path}/post-queue" role="menuitem">
-			<i class="fa fa-fw fa-list-alt text-secondary"></i> <span>[[pages:post-queue]]</span>
+			<i class="fa fa-fw fa-list-alt text-secondary fa-color"></i> <span>[[pages:post-queue]]</span>
 		</a>
 	</li>
 	{{{ end }}}
@@ -96,7 +96,7 @@
 			<input type="hidden" name="_csrf" value="{config.csrf_token}">
 			<input type="hidden" name="noscript" value="true">
 			<button type="submit" class="dropdown-item rounded-1 d-flex align-items-center gap-2">
-				<i class="fa fa-fw fa-sign-out text-secondary"></i><span>[[global:logout]]</span>
+				<i class="fa fa-fw fa-sign-out text-secondary fa-color"></i><span>[[global:logout]]</span>
 			</button>
 		</form>
 	</li>

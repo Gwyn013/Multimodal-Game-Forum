@@ -15,7 +15,7 @@
 
 	<div class="d-flex flex-column flex-md-row justify-content-md-between pb-4 mb-4 mt-2 border-bottom">
 		<div class="d-flex flex-column mt-1">
-			<div class="d-flex align-items-center gap-2">
+			<div class="d-flex align-items-center gap-2 fw-semibold">
 				<h3 class="mb-0">{group.displayName}</h3>
 			</div>
 			<div class="d-flex gap-2">

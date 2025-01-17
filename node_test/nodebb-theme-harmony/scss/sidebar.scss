@@ -2,12 +2,12 @@
 	// only using colors when there is no bootswatch skin applied
 	nav.sidebar, .bottombar-nav {
 		color: $secondary !important;
-		background-color: $light !important;
+		background-color: #4F4032 !important;
 	}
 	.bottombar-nav {
 		.dropdown-menu {
 			color: $secondary !important;
-			background-color: $light !important;
+			background-color: #4F4032 !important;
 		}
 	}
 }
@@ -52,11 +52,14 @@
 		padding: ($spacer * 0.25) ($spacer * 0.5);
 		border-radius: $border-radius-sm;
 		cursor: pointer;
+		color: #FBF4ED !important;  // 设置默认文字颜色
 		&.active {
-			background-color: $hover-color;
+			background-color: #957B65;
+			color: #FBF4ED !important;  // 设置默认文字颜色
 		}
 		&:hover {
-			background-color: $hover-color;
+			background-color: #957B65;
+			color: #FBF4ED !important;  // 设置默认文字颜色
 		}
 	}
 
@@ -185,4 +188,8 @@
 		max-height: 225px!important;
 		overflow-y: auto!important;
 	}
+}
+
+.sidebar-text-color {
+	color: #FBF4ED !important;  // 设置默认文字颜色
 }

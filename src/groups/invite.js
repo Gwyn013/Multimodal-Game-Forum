@@ -21,6 +21,7 @@ module.exports = function (Groups) {
 		await inviteOrRequestMembership(groupName, uid, 'request');
 		const { displayname } = await user.getUserFields(uid, ['username']);
 
+		/*
 		const [notification, owners] = await Promise.all([
 			notifications.create({
 				type: 'group-request-membership',
@@ -34,12 +35,14 @@ module.exports = function (Groups) {
 		]);
 
 		await notifications.push(notification, owners);
+		*/
 	};
 
 	Groups.acceptMembership = async function (groupName, uid) {
 		await db.setsRemove([`group:${groupName}:pending`, `group:${groupName}:invited`], uid);
 		await Groups.join(groupName, uid);
 
+		/*
 		const notification = await notifications.create({
 			type: 'group-invite',
 			bodyShort: `[[groups:membership.accept.notification-title, ${groupName}]]`,
@@ -48,6 +51,7 @@ module.exports = function (Groups) {
 			icon: 'fa-users',
 		});
 		await notifications.push(notification, [uid]);
+		*/
 	};
 
 	Groups.rejectMembership = async function (groupNames, uid) {
@@ -63,6 +67,7 @@ module.exports = function (Groups) {
 		uids = Array.isArray(uids) ? uids : [uids];
 		uids = await inviteOrRequestMembership(groupName, uids, 'invite');
 
+		/*
 		const notificationData = await Promise.all(uids.map(uid => notifications.create({
 			type: 'group-invite',
 			bodyShort: `[[groups:invited.notification-title, ${groupName}]]`,
@@ -73,6 +78,7 @@ module.exports = function (Groups) {
 		})));
 
 		await Promise.all(uids.map((uid, index) => notifications.push(notificationData[index], uid)));
+		*/
 	};
 
 	async function inviteOrRequestMembership(groupName, uids, type) {

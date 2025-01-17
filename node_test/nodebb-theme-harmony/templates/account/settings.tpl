@@ -6,7 +6,6 @@
 </div>
 <div class="row">
 	<div class="col-12 col-md-6">
-		<!--
 		{{{ if !disableCustomUserSkins }}}
 		<label for="bootswatchSkin" class="form-label fw-bold">[[user:select-skin]]</label>
 		<select class="form-select form-select-sm" id="bootswatchSkin" data-property="bootswatchSkin">
@@ -17,7 +16,6 @@
 
 		<hr/>
 		{{{ end }}}
-		-->
 
 		{{{ if allowUserHomePage }}}
 		<label for="homePageRoute" class="form-label fw-bold">[[user:select-homepage]]</label>

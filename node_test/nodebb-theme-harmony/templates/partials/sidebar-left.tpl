@@ -11,7 +11,7 @@
 						<span component="navigation/count" class="visible-closed position-absolute top-0 start-100 translate-middle badge rounded-1 bg-primary {{{ if !./content }}}hidden{{{ end }}}">{./content}</span>
 						{{{ end }}}
 					</span>
-					{{{ if ./text }}}<span class="nav-text small visible-open fw-semibold text-truncate">{./text}</span>{{{ end }}}
+					{{{ if ./text }}}<span class="nav-text small visible-open fw-semibold text-truncate sidebar-text-color">{./text}</span>{{{ end }}}
 				</span>
 				<span component="navigation/count" class="visible-open badge rounded-1 bg-primary {{{ if !./content }}}hidden{{{ end }}}">{./content}</span>
 			</a>
@@ -33,7 +33,7 @@
 			<a href="#" role="button" component="sidebar/toggle" class="nav-link d-flex gap-2 align-items-center p-2 pointer w-100 text-nowrap" title="[[themes/harmony:expand]]" aria-label="[[themes/harmony:sidebar-toggle]]">
 				<i class="fa fa-fw fa-angles-right"></i>
 				<i class="fa fa-fw fa-angles-left"></i>
-				<span class="nav-text visible-open fw-semibold small lh-1">[[themes/harmony:collapse]]</span>
+				<span class="nav-text visible-open fw-semibold small lh-1 sidebar-text-color">[[themes/harmony:collapse]]</span>
 			</a>
 		</div>
 	</div>
