@@ -168,7 +168,8 @@ $(document).ready(function () {
 			}
 
 
-			draftsEl.on('shown.bs.dropdown', renderDraftList);
+			// draftsEl.on('shown.bs.dropdown', renderDraftList);
+			renderDraftList();
 
 			draftsEl.on('click', '[component="drafts/open"]', function () {
 				drafts.open($(this).attr('data-save-id'));

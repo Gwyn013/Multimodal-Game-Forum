@@ -6,6 +6,7 @@
 </div>
 <div class="row">
 	<div class="col-12 col-md-6">
+		<!--
 		{{{ if !disableCustomUserSkins }}}
 		<label for="bootswatchSkin" class="form-label fw-bold">[[user:select-skin]]</label>
 		<select class="form-select form-select-sm" id="bootswatchSkin" data-property="bootswatchSkin">
@@ -16,7 +17,7 @@
 
 		<hr/>
 		{{{ end }}}
-
+		-->
 		{{{ if allowUserHomePage }}}
 		<label for="homePageRoute" class="form-label fw-bold">[[user:select-homepage]]</label>
 
@@ -46,14 +47,14 @@
 			<label class="form-check-label text-sm" for="showemail">[[user:show-email]]</label>
 		</div>
 		{{{ end }}}
-
+		<!--
 		{{{ if !hideFullname }}}
 		<div class="form-check form-switch">
 			<input class="form-check-input" type="checkbox" role="switch" id="showfullname" data-property="showfullname" {{{ if settings.showfullname }}}checked{{{ end }}}/>
 			<label class="form-check-label text-sm" for="showfullname">[[user:show-fullname]]</label>
 		</div>
 		{{{ end }}}
-
+		-->
 		{{{ if !config.disableChat }}}
 		<div class="form-check form-switch">
 			<input class="form-check-input" type="checkbox" role="switch" id="restrictChat" data-property="restrictChat" {{{ if settings.restrictChat }}}checked{{{ end }}}/>
@@ -156,6 +157,8 @@
 	</div>
 
 	<div class="col-12 col-md-6">
+		
+		{{{ if (isAdmin && isSelf) }}}
 		<label class="form-label fw-bold" for="userLang">[[global:language]]</label>
 		<select id="userLang" data-property="userLang" class="form-select form-select-sm mb-2">
 			{{{each languages}}}
@@ -164,8 +167,7 @@
 		</select>
 
 		<hr/>
-
-		{{{ if (isAdmin && isSelf) }}}
+		
 		<label class="form-label fw-bold" for="acpLang">[[user:acp-language]]</label>
 		<select id="acpLang" data-property="acpLang" class="form-select form-select-sm">
 			{{{each acpLanguages}}}
