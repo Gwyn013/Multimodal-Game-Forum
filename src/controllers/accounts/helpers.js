@@ -259,7 +259,7 @@ async function getProfileMenu(uid, callerUID) {
 			admin: true,
 			canViewInfo: true,
 		},
-	}, {
+	}/*, {
 		id: 'sessions',
 		route: 'sessions',
 		name: '[[pages:account/sessions]]',
@@ -272,7 +272,7 @@ async function getProfileMenu(uid, callerUID) {
 			admin: false,
 			canViewInfo: false,
 		},
-	}];
+	}*/];
 
 	if (meta.config.gdpr_enabled) {
 		links.push({

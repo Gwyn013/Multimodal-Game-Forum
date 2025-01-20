@@ -36,13 +36,21 @@ Notifications.baseTypes = [
 	'notificationType_post-edit',
 	'notificationType_follow',
 	'notificationType_new-chat',
-	'notificationType_new-group-chat',
-	'notificationType_new-public-chat',
+	
 	'notificationType_group-invite',
-	'notificationType_group-leave',
-	'notificationType_group-request-membership',
+	
 	'notificationType_new-reward',
 ];
+
+/*
+	'notificationType_new-group-chat',
+	'notificationType_new-public-chat',
+	'notificationType_group-leave',
+	'notificationType_group-request-membership',
+
+*/
+
+
 
 Notifications.privilegedTypes = [
 	'notificationType_new-register',

@@ -18,6 +18,7 @@
 		<hr/>
 		{{{ end }}}
 		-->
+		<!--
 		{{{ if allowUserHomePage }}}
 		<label for="homePageRoute" class="form-label fw-bold">[[user:select-homepage]]</label>
 
@@ -38,7 +39,8 @@
 
 		<hr/>
 		{{{ end }}}
-
+		-->
+		<!--
 		<h6 class="fw-bold">[[global:privacy]]</h6>
 
 		{{{ if !hideEmail }}}
@@ -47,14 +49,14 @@
 			<label class="form-check-label text-sm" for="showemail">[[user:show-email]]</label>
 		</div>
 		{{{ end }}}
-		<!--
+		
 		{{{ if !hideFullname }}}
 		<div class="form-check form-switch">
 			<input class="form-check-input" type="checkbox" role="switch" id="showfullname" data-property="showfullname" {{{ if settings.showfullname }}}checked{{{ end }}}/>
 			<label class="form-check-label text-sm" for="showfullname">[[user:show-fullname]]</label>
 		</div>
 		{{{ end }}}
-		-->
+		
 		{{{ if !config.disableChat }}}
 		<div class="form-check form-switch">
 			<input class="form-check-input" type="checkbox" role="switch" id="restrictChat" data-property="restrictChat" {{{ if settings.restrictChat }}}checked{{{ end }}}/>
@@ -63,7 +65,7 @@
 		{{{ end }}}
 
 		<hr/>
-
+		-->
 		<h6 class="fw-bold">[[user:browsing]]</h6>
 
 		<div class="form-check form-switch">
@@ -90,7 +92,7 @@
 		</div>
 
 		<hr/>
-
+		<!--
 		<h6 class="fw-bold">[[global:pagination]]</h6>
 
 		<div class="mb-2 form-check form-switch">
@@ -107,7 +109,7 @@
 		</div>
 
 		<hr/>
-
+		-->
 		<h6 class="fw-bold">[[global:sort]]</h6>
 
 		<div class="mb-2">
@@ -232,6 +234,7 @@
 				</div>
 			</div>
 		</div>
+		<hr/>
 	</div>
 </div>
 

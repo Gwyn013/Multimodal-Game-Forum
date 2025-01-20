@@ -91,7 +91,7 @@
     "notificationType-new-chat": "当您收到聊天消息时",
     "notificationType-new-group-chat": "当您收到群聊消息时",
     "notificationType-new-public-chat": "当您收到公共群聊消息时",
-    "notificationType-group-invite": "当您收到用户组邀请时",
+    "notificationType-group-invite": "当您收到徽章奖励时",
     "notificationType-group-leave": "当用户离开您的用户组时",
     "notificationType-group-request-membership": "当有人请求加入您拥有的用户组时",
     "notificationType-new-register": "当有人被添加到申请队列时",
