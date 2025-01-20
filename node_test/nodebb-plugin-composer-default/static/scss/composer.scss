@@ -236,9 +236,15 @@
 		padding: $input-padding-y $input-padding-x;
 	}
 }
+.title-container .text-truncate{
+	color: #957B65 !important;
+}
 .list-unstyled{
-	.code,.link,.picture-o,.zen{
+	.code,.picture-o,.zen{
 		display: none;
+	}
+	.btn-link i{
+		color: #8C6849 !important;
 	}
 }
 .datetime-picker {

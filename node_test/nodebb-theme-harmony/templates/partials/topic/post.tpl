@@ -25,7 +25,7 @@
 					</a>
 				</div>
 
-				<a class="fw-bold text-nowrap" href="{{{ if ./user.userslug }}}{config.relative_path}/user/{./user.userslug}{{{ else }}}#{{{ end }}}" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
+				<a class="fw-bold text-nowrap" href="{{{ if ./user.userslug }}}{config.relative_path}/user/{./user.userslug}{{{ else }}}#{{{ end }}}" data-username="{posts.user.username}" data-uid="{posts.user.uid}" style="color: #5D3D21;">{posts.user.displayname}</a>
 
 				{{{ each posts.user.selectedGroups}}}
 				{{{ if posts.user.selectedGroups.slug }}}
@@ -37,11 +37,11 @@
 				<span class="badge bg-danger rounded-1">[[user:banned]]</span>
 				{{{ end }}}
 
-				<div class="d-flex gap-1 align-items-center">
+				<div class="d-flex gap-1 align-items-center" style="width:100%">
 					<span class="text-muted post-timestamp-color">{generateWroteReplied(@value, config.timeagoCutoff)}</span>
 
 					<i component="post/edit-indicator" class="fa fa-edit text-muted{{{ if privileges.posts:history }}} pointer{{{ end }}} edit-icon {{{ if !posts.editor.username }}}hidden{{{ end }}}" title="[[global:edited-timestamp, {isoTimeToLocaleString(./editedISO, config.userLang)}]]"></i>
-					<span data-editor="{posts.editor.userslug}" component="post/editor" class="visually-hidden">[[global:last-edited-by, {posts.editor.username}]] <span class="timeago" title="{isoTimeToLocaleString(posts.editedISO, config.userLang)}"></span></span>
+					<span data-editor="{posts.editor.userslug}" component="post/editor" class="visually-hidden" style="color: #5D3D21;">[[global:last-edited-by, {posts.editor.username}]] <span class="timeago" title="{isoTimeToLocaleString(posts.editedISO, config.userLang)}"></span></span>
 				</div>
 
 				{{{ if posts.user.custom_profile_info.length }}}
@@ -57,7 +57,7 @@
 			</div>
 			<div class="d-flex align-items-center gap-1 justify-content-end">
 				<span class="bookmarked opacity-0 text-primary"><i class="fa fa-bookmark-o"></i></span>
-				<a href="{config.relative_path}/post/{./pid}" class="post-index text-muted d-none d-md-inline post-timestamp-color">#{increment(./index, "1")}</a>
+				<a href="{config.relative_path}/post/{./pid}" class="post-index text-muted d-none d-md-inline post-timestamp-color">#{increment(./index, "1")}楼</a>
 			</div>
 		</div>
 
@@ -72,7 +72,7 @@
 
 			<div class="d-flex flex-wrap {{{ if (hideReplies || !posts.replies.count) }}}justify-content-end{{{ else }}}justify-content-between{{{ end }}}">
 				{{{ if !hideReplies }}}
-				<a component="post/reply-count" data-target-component="post/replies/container" href="#" class="d-flex gap-2 align-items-center btn btn-ghost ff-secondary border rounded-1 p-1 text-muted text-decoration-none text-xs {{{ if (!./replies || shouldHideReplyContainer(@value)) }}}hidden{{{ end }}}">
+				<a component="post/reply-count" data-target-component="post/replies/container" href="#" class="d-flex gap-2 align-items-center post-bg-show btn btn-ghost ff-secondary border rounded-1 p-1 text-muted text-decoration-none text-xs {{{ if (!./replies || shouldHideReplyContainer(@value)) }}}hidden{{{ end }}}">
 					<span component="post/reply-count/avatars" class="d-flex gap-1 {{{ if posts.replies.hasMore }}}hasMore{{{ end }}}">
 						{{{each posts.replies.users}}}
 						<span>{buildAvatar(posts.replies.users, "20px", true, "avatar-tooltip")}</span>
@@ -88,8 +88,8 @@
 					<i class="fa fa-fw fa-chevron-down" component="post/replies/open"></i>
 				</a>
 				{{{ end }}}
-				<div component="post/actions" class="d-flex flex-grow-1 justify-content-end gap-1 post-tools">
-					<!-- IMPORT partials/topic/reactions.tpl -->
+				<div component="post/actions" class="d-flex flex-grow-1 justify-content-end gap-1 post-tools" style="opacity:1!important;">
+					<!--  partials/topic/reactions.tpl -->
 					<a component="post/reply" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:reply]]"><i class="fa fa-fw fa-reply text-primary post-tool-color"></i></a>
 					<a component="post/quote" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:quote]]"><i class="fa fa-fw fa-quote-right text-primary post-tool-color"></i></a>
 
@@ -115,7 +115,7 @@
 				</div>
 			</div>
 
-			<div component="post/replies/container" class="my-2 col-11 border rounded-1 p-3 hidden-empty"></div>
+			<div component="post/replies/container" class="my-2 col-11 border rounded-1 p-3 hidden-empty post-bg-hidden"></div>
 		</div>
 	</div>
 </div>

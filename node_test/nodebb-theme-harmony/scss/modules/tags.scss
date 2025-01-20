@@ -1,7 +1,8 @@
 .tag-list {
 	.tag {
 		background-color: $gray-200!important;
-		color: $gray-700!important;
+		// color: $gray-700!important;
+		color: #fff !important;
 
 		/* 在标签前加上井号 */
 		&::before {

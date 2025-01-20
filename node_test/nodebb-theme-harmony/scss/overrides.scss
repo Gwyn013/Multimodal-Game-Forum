@@ -3,7 +3,7 @@
 // Harmony colours
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
+$gray-200: #B19379 !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
@@ -32,7 +32,7 @@ $body-color: 		$gray-800 !default;
 $body-bg: 			$white !default;
 $body-tertiary-bg: 	$gray-200 !default;
 $text-muted: 		$gray-600 !default;
-$border-color: 		$gray-200 !default;
+$border-color: 		#B19379 !default;
 $link-color: 		#0951be !default;
 
 $form-check-input-border: var(--bs-border-width) solid $gray-500 !default;
@@ -54,7 +54,8 @@ $font-family-secondary: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
 $font-weight-semibold: 500 !default;
 $small-font-size: 0.875rem !default;
 
-$breadcrumb-divider: quote("→");
+//除非--修改面包屑导航
+$breadcrumb-divider: quote(">>");
 $breadcrumb-divider-color: $gray-500 !default;
 $breadcrumb-active-color: $body-color !default;
 $breadcrumb-item-padding-x: 12px !default;

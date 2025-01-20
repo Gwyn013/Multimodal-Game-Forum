@@ -2,11 +2,11 @@
     {{{ if selectedCategory }}}
     <span class="category-item d-inline-flex align-items-center gap-1">
         {buildCategoryIcon(selectedCategory, "18px", "rounded-circle")}
-        <span class="d-none d-md-inline fw-semibold">{selectedCategory.name}</span>
+        <span class="d-none d-md-inline fw-semibold postBar-btn-text">{selectedCategory.name}</span>
     </span>
     {{{ else }}}
     <i class="fa fa-fw fa-list text-primary"></i>
-    <span class="d-none d-md-inline fw-semibold">[[unread:all-categories]]</span>{{{ end }}}
+    <span class="d-none d-md-inline fw-semibold postBar-btn-text">[[unread:all-categories]]</span>{{{ end }}}
 </button>
 
 <div component="category-selector-search" class="hidden position-absolute" style="min-width: 120px;">

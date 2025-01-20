@@ -1,17 +1,17 @@
-<button type="button" class="btn btn-ghost btn-sm d-flex align-items-center ff-secondary d-flex gap-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<button type="button" class="btn btn-ghost postBar-btn btn-sm d-flex align-items-center ff-secondary d-flex gap-2 dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     {{{ if selectedTag }}}
     <span class="d-inline-flex align-items-center gap-1">
         <i class="fa fa-fw fa-tags text-primary"></i>
-        <span class="visible-md-inline visible-lg-inline fw-semibold">{selectedTag.label}</span>
+        <span class="visible-md-inline visible-lg-inline fw-semibold postBar-btn-text">{selectedTag.label}</span>
     </span>
     {{{ else }}}
     <i class="fa fa-fw fa-tags text-primary"></i>
-    <span class="visible-md-inline visible-lg-inline fw-semibold">[[tags:all-tags]]</span>
+    <span class="visible-md-inline visible-lg-inline fw-semibold postBar-btn-text">[[tags:all-tags]]</span>
     {{{ end }}}
 </button>
 
 <div component="tag/filter/search" class="hidden position-absolute" style="min-width: 120px;">
-    <input type="text" class="form-control form-control-sm" placeholder="[[search:type-to-search]]" autocomplete="off">
+    <input type="text" class="form-control form-control-sm" placeholder="按tag搜索" autocomplete="off">
 </div>
 
 <div class="dropdown-menu p-1">
