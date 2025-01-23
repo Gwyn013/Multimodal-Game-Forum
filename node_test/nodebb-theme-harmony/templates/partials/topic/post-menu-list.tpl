@@ -85,8 +85,8 @@
 	<li>
 		<a class="dropdown-item rounded-1 d-flex align-items-center gap-2 dropdown-item-color" component="post/bookmark" role="menuitem" href="#" data-bookmarked="{posts.bookmarked}">
 			<span class="menu-icon">
-				<i component="post/bookmark/on" class="fa fa-fw text-secondary fa-bookmark dropdown-item-color {{{ if !posts.bookmarked }}}hidden{{{ end }}}"></i>
-				<i component="post/bookmark/off" class="fa fa-fw text-secondary fa-bookmark-o dropdown-item-color {{{ if posts.bookmarked }}}hidden{{{ end }}}"></i>
+				<i component="post/bookmark/on" class="fa fa-fw text-secondary fa-star dropdown-item-color {{{ if !posts.bookmarked }}}hidden{{{ end }}}"></i>
+				<i component="post/bookmark/off" class="fa fa-fw text-secondary fa-star-o dropdown-item-color {{{ if posts.bookmarked }}}hidden{{{ end }}}"></i>
 			</span>
 			<span class="bookmark-text">[[topic:bookmark]]</span>
 			<span component="post/bookmark-count" class="bookmarkCount badge bg-secondary" data-bookmarks="{posts.bookmarks}">{posts.bookmarks}</span>&nbsp;

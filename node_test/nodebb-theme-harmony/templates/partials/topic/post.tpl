@@ -90,13 +90,13 @@
 				{{{ end }}}
 				<div component="post/actions" class="d-flex flex-grow-1 justify-content-end gap-1 post-tools" style="opacity:1!important;">
 					<!--  partials/topic/reactions.tpl -->
-					<a component="post/reply" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:reply]]"><i class="fa fa-fw fa-reply text-primary post-tool-color"></i></a>
-					<a component="post/quote" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:quote]]"><i class="fa fa-fw fa-quote-right text-primary post-tool-color"></i></a>
+					<a component="post/reply" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:reply]]"><i class="fa fa-fw fa-at text-primary post-tool-color"></i></a>
+    				<a component="post/quote" href="#" class="btn btn-ghost btn-sm {{{ if !privileges.topics:reply }}}hidden{{{ end }}}" title="[[topic:quote]]"><i class="fa fa-fw fa-quote-right text-primary post-tool-color"></i></a>
 
 					{{{ if !reputation:disabled }}}
 					<div class="d-flex votes align-items-center">
 						<a component="post/upvote" href="#" class="btn btn-ghost btn-sm {{{ if posts.upvoted }}} upvoted{{{ end }}}" title="[[topic:upvote-post]]">
-							<i class="fa fa-fw fa-chevron-up text-primary post-tool-color"></i>
+							<i class="fa fa-fw fa-heart text-primary post-tool-color"></i>
 						</a>
 
 						<meta itemprop="upvoteCount" content="{posts.upvotes}">
