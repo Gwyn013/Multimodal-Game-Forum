@@ -88,9 +88,9 @@ rewards.addToGroup = async function (data) {
 	await groups.join(data.reward.groupname, data.uid);
 	const langKey = await getConditionalLangKey(data.rewardData);
 	await sendNotification(data.uid, {
-		bodyShort: `[[rewards:awarded-group-membership, ${data.reward.groupname}]]<br/>${langKey}`,
+		bodyShort: `[[恭喜您已获得徽章: ${data.reward.groupname}]]<br/>${langKey}`,
 		nid: `uid:${data.uid}:id:${data.rewardData.id}`,
-		path: `/groups/${slugify(data.reward.groupname)}`,
+		// path: `/groups/${slugify(data.reward.groupname)}`,
 	});
 };
 

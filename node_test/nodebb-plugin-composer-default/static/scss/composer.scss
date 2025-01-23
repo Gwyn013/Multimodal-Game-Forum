@@ -393,3 +393,37 @@
 		background-color: var(--bs-body-bg)!important;
 	}
 }
+
+#select-tags {
+    color: #5E4631 !important;
+    
+    i.fa {
+        color: #AB372F !important;
+    }
+}
+
+#tags-modal {
+    .modal-title, label, h5 {
+        color: #5E4631;
+    }
+}
+
+#tags-modal input::placeholder {
+    color: #D4BFAD !important;
+}
+
+.option-color {
+	color: #D4BFAD !important;
+}
+
+#tags-modal .modal-dialog {
+    max-width: 600px;
+}
+
+#tags-modal .modal-content {
+    padding: 15px;
+}
+
+#tags-modal select, #tags-modal input {
+    width: 100%;
+}

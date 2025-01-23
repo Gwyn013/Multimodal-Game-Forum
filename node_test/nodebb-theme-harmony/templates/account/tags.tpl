@@ -7,7 +7,7 @@
 </div>
 
 <div>
-	<input component="tags/watch" type="text" class="form-control">
+	<input component="tags/watch" type="text" class="form-control" readonly disabled>
 </div>
 
 <!-- IMPORT partials/account/footer.tpl -->
