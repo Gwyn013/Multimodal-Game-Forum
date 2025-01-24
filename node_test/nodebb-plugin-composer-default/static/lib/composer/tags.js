@@ -33,7 +33,7 @@ define('composer/tags', ['alerts', 'autocomplete'], function (alerts, Autocomple
 
     // Predefined tags
     var tagsData = {
-        classA: ['CB', 'BG', 'GB', 'BL', 'GL', '水仙', '其他'],
+        classA: ['单人', 'CB', 'BG', 'GB', 'BL', 'GL', '水仙', '其他'],
         classB: ['CB×无CP', '1v1', '1vN', '三角×四角关系', '群像'],
         classC: ['清水', '边限不含特殊元素', '边限内容含特殊元素'],
         classD: ['梦向', '大量私设', '原创角色', '左右位互换', '性转', '双性', 'All广', '刘辩×广陵王', '傅融×广陵王', '袁基×广陵王', 
@@ -111,6 +111,25 @@ define('composer/tags', ['alerts', 'autocomplete'], function (alerts, Autocomple
         if (!modal.length) {
             return;
         }
+
+        // 将模态框移到 body 下
+        if (modal.parent().hasClass('composer')) {
+            $('body').append(modal);
+        }
+
+        // 重新初始化模态框
+        modal.off('shown.bs.modal hidden.bs.modal');
+        modal.on('shown.bs.modal', function() {
+            // 确保模态框可以点击
+            $(this).css({
+                'display': 'block',
+                'pointer-events': 'auto'
+            });
+            $('.modal-backdrop').css({
+                'z-index': '1999',
+                'pointer-events': 'auto'
+            });
+        });
 
         // 添加获取当前分类ID的逻辑
         var categoryId = ajaxify.data.cid;
@@ -197,7 +216,15 @@ define('composer/tags', ['alerts', 'autocomplete'], function (alerts, Autocomple
         fillSelectOptions(modal);
 
         // Event: Open the modal
-        postContainer.find('#select-tags').on('click', function () {
+        postContainer.find('#select-tags').off('click').on('click', function () {
+            // 移除所有现有的模态框背景
+            $('.modal-backdrop').remove();
+            
+            // 确保模态框在正确的位置
+            if (!$('body > #tags-modal').length) {
+                $('body').append(modal);
+            }
+            
             modal.modal('show');
         });
 
@@ -368,6 +395,19 @@ define('composer/tags', ['alerts', 'autocomplete'], function (alerts, Autocomple
                 classD: selectedTagsMap.classD
             };
 
+            // 获取后台设置的标签限制
+            var minTags = ajaxify.data.tagSettings ? parseInt(ajaxify.data.tagSettings.minTags, 10) : 0;
+            var maxTags = ajaxify.data.tagSettings ? parseInt(ajaxify.data.tagSettings.maxTags, 10) : 0;
+            var totalTags = tags.getTags().length;
+
+            // 检查标签数量限制
+            if (totalTags < minTags) {
+                return alerts.error('[[error:not-enough-tags, ' + minTags + ']]');
+            }
+            if (maxTags > 0 && totalTags > maxTags) {
+                return alerts.error('[[error:too-many-tags, ' + maxTags + ']]');
+            }
+
             // 根据不同情况使用不同的验证逻辑
             if (!showOnlyClassD && !validateTags(selectedTags)) {
                 return alerts.error('有必填项尚未填写，请填写后再提交。');
@@ -418,15 +458,29 @@ define('composer/tags', ['alerts', 'autocomplete'], function (alerts, Autocomple
             return true;
         }
 
+        // 获取后台设置的标签限制
+        var minTags = ajaxify.data.tagSettings ? parseInt(ajaxify.data.tagSettings.minTags, 10) : 0;
+        var maxTags = ajaxify.data.tagSettings ? parseInt(ajaxify.data.tagSettings.maxTags, 10) : 0;
+        
+        // 获取当前选择的所有标签数量
+        var totalTags = tags.getTags().length;
+
         if (showOnlyClassD) {
-            return true;
+            // 只显示 ClassD 时只检查总数限制
+            return totalTags >= minTags && (maxTags === 0 || totalTags <= maxTags);
         }
 
-        return (
-            selectedTags.classA.length >= minTags &&
-            selectedTags.classB.length >= minTags &&
+        // 检查基本要求
+        var basicRequirementsMet = (
+            selectedTags.classA.length >= 1 &&
+            selectedTags.classB.length >= 1 &&
             selectedTags.classC.length === 1
         );
+
+        // 同时满足基本要求和后台设置的数量限制
+        return basicRequirementsMet && 
+               totalTags >= minTags && 
+               (maxTags === 0 || totalTags <= maxTags);
     };
 
     // Fill dropdown options
