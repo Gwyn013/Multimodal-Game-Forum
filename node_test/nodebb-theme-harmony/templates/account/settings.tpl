@@ -1,6 +1,6 @@
 <!-- IMPORT partials/account/header.tpl -->
 
-<div class="d-flex justify-content-between py-1 mb-3 align-items-center position-sticky top-0 bg-body">
+<div class="d-flex justify-content-between py-1 mb-3 align-items-center  top-0 ">
 	<h3 class="fw-semibold fs-5 mb-0">{{{ if isSelf }}}[[pages:account/settings]]{{{ else }}}[[pages:account/settings-of, {username}]]{{{ end }}}</h3>
 	<button id="submitBtn" class="btn btn-sm btn-primary">[[global:save-changes]]</button>
 </div>
@@ -18,6 +18,7 @@
 		<hr/>
 		{{{ end }}}
 		-->
+		<!--
 		{{{ if allowUserHomePage }}}
 		<label for="homePageRoute" class="form-label fw-bold">[[user:select-homepage]]</label>
 
@@ -38,7 +39,8 @@
 
 		<hr/>
 		{{{ end }}}
-
+		-->
+		<!--
 		<h6 class="fw-bold">[[global:privacy]]</h6>
 
 		{{{ if !hideEmail }}}
@@ -47,14 +49,14 @@
 			<label class="form-check-label text-sm" for="showemail">[[user:show-email]]</label>
 		</div>
 		{{{ end }}}
-		<!--
+		
 		{{{ if !hideFullname }}}
 		<div class="form-check form-switch">
 			<input class="form-check-input" type="checkbox" role="switch" id="showfullname" data-property="showfullname" {{{ if settings.showfullname }}}checked{{{ end }}}/>
 			<label class="form-check-label text-sm" for="showfullname">[[user:show-fullname]]</label>
 		</div>
 		{{{ end }}}
-		-->
+		
 		{{{ if !config.disableChat }}}
 		<div class="form-check form-switch">
 			<input class="form-check-input" type="checkbox" role="switch" id="restrictChat" data-property="restrictChat" {{{ if settings.restrictChat }}}checked{{{ end }}}/>
@@ -63,8 +65,8 @@
 		{{{ end }}}
 
 		<hr/>
-
-		<h6 class="fw-bold">[[user:browsing]]</h6>
+		-->
+		<h6 class="fw-bold" style="color:#5E4631">[[user:browsing]]</h6>
 
 		<div class="form-check form-switch">
 			<input class="form-check-input" type="checkbox" role="switch" id="openOutgoingLinksInNewTab" data-property="openOutgoingLinksInNewTab" {{{ if settings.openOutgoingLinksInNewTab }}}checked{{{ end }}}/>
@@ -90,7 +92,7 @@
 		</div>
 
 		<hr/>
-
+		<!--
 		<h6 class="fw-bold">[[global:pagination]]</h6>
 
 		<div class="mb-2 form-check form-switch">
@@ -107,8 +109,8 @@
 		</div>
 
 		<hr/>
-
-		<h6 class="fw-bold">[[global:sort]]</h6>
+		-->
+		<h6 class="fw-bold" style="color:#5E4631">[[global:sort]]</h6>
 
 		<div class="mb-2">
 			<label class="form-label text-sm" for="categoryTopicSort">[[user:category-topic-sort]]</label>
@@ -132,7 +134,7 @@
 
 		{{{ if !disableEmailSubscriptions }}}
 		<hr/>
-		<h6 class="fw-bold">[[global:email]]</h6>
+		<h6 class="fw-bold" style="color:#5E4631">[[global:email]]</h6>
 		<div>
 			<div class="mb-2">
 				<label class="form-label text-sm" for="dailyDigestFreq">[[user:digest-label]]</label>
@@ -178,7 +180,7 @@
 		<hr/>
 		{{{ end }}}
 
-		<h6 class="fw-bold">[[topic:watch]]</h6>
+		<h6 class="fw-bold" style="color:#5E4631">[[topic:watch]]</h6>
 		<div>
 			<div class="form-check form-switch">
 				<input class="form-check-input" type="checkbox" role="switch" id="followTopicsOnCreate" data-property="followTopicsOnCreate" {{{ if settings.followTopicsOnCreate }}}checked{{{ end }}}/>
@@ -199,7 +201,7 @@
 		</div>
 		<hr/>
 
-		<h6 class="fw-bold">[[user:notifications]]</h6>
+		<h6 class="fw-bold" style="color:#5E4631">[[user:notifications]]</h6>
 		<div>
 			{{{ each notificationSettings }}}
 			<div class="row mb-3 align-items-center">
@@ -232,6 +234,7 @@
 				</div>
 			</div>
 		</div>
+		<hr/>
 	</div>
 </div>
 

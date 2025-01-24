@@ -46,13 +46,13 @@
 		<!--{{{ if canUploadImage }}}
 		{{{ end }}}-->
 
-		{{{ if canUploadFile }}}
+		<!--{{{ if canUploadFile }}}
 		<li title="[[modules:composer.upload-file]]">
 			<button data-format="upload" class="file-upload-btn btn btn-sm btn-link text-reset" aria-label="[[modules:composer.upload-file]]">
 				<i class="fa fa-file-o"></i>
 			</button>
 		</li>
-		{{{ end }}}
+		{{{ end }}}-->
 
 		<form id="fileForm" method="post" enctype="multipart/form-data">
 			<input type="file" id="files" name="files[]" multiple class="hide"/>

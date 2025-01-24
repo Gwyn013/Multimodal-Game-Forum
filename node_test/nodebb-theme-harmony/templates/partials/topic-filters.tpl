@@ -1,7 +1,7 @@
 <div class="btn-group bottom-sheet{{{ if !filters.length }}} hidden{{{ end }}}">
-	<button type="button" class="btn btn-ghost btn-sm ff-secondary d-flex gap-2 align-items-center dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	<button type="button" class="btn btn-ghost postBar-btn btn-sm ff-secondary d-flex gap-2 align-items-center dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		<i class="fa fa-fw fa-filter text-primary"></i>
-		<span class="visible-md-inline visible-lg-inline fw-semibold">{selectedFilter.name}</span>
+		<span class="visible-md-inline visible-lg-inline fw-semibold postBar-btn-text">{selectedFilter.name}</span>
 	</button>
 	<ul class="dropdown-menu p-1 text-sm" role="menu">
 		{{{each filters}}}

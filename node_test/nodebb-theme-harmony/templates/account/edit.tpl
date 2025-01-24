@@ -1,6 +1,6 @@
 <!-- IMPORT partials/account/header.tpl -->
 
-<div class="d-flex justify-content-between py-1 mb-3 align-items-center position-sticky top-0 bg-body z-1">
+<div class="d-flex justify-content-between py-1 mb-3 align-items-center  top-0 z-1">
 	<h3 class="fw-semibold fs-5 mb-0">{{{ if isSelf }}}[[user:edit-profile]]{{{ else }}}[[pages:account/edit, {username}]]{{{ end }}}</h3>
 	<button id="submitBtn" class="btn btn-sm btn-primary">[[global:save-changes]]</button>
 </div>
@@ -14,8 +14,8 @@
 			</div>
 			-->
 			<div class="mb-3">
-				<label class="form-label fw-bold" for="birthday">[[user:birthday]]</label>
-				<input class="form-control" type="date" id="birthday" name="birthday" value="{birthday}" placeholder="mm/dd/yyyy">
+				<label class="form-label fw-bold" for="birthday" style="color:#5E4631">[[user:birthday]]</label>
+				<input class="form-control"  style="color:#5E4631" type="date" id="birthday" name="birthday" value="{birthday}" placeholder="mm/dd/yyyy">
 			</div>
 
 			{{{ each customUserFields }}}
@@ -45,7 +45,8 @@
 
 			{{{ if groups.length }}}
 			<div class="mb-3">
-				<label class="form-label fw-bold" for="groupTitle">[[user:grouptitle]]</label>
+				<label class="form-label fw-bold" for="groupTitle" style="color:#5E4631">[[user:grouptitle]]</label>
+				<div class="alert alert-warning text-center">发帖时默认显示第一个称号</div>
 
 				<div class="d-flex flex-column gap-2" component="group/badge/list">
 					{{{ each groups }}}
@@ -67,14 +68,14 @@
 
 			{{{ if allowAboutMe }}}
 			<div class="mb-3">
-				<label class="form-label fw-bold" for="aboutme">[[user:aboutme]]</label> <small><label id="aboutMeCharCountLeft"></label></small>
+				<label class="form-label fw-bold" for="aboutme" style="color:#5E4631">[[user:aboutme]]</label> <small><label id="aboutMeCharCountLeft"></label></small>
 				<textarea class="form-control" id="aboutme" name="aboutme" rows="5">{aboutme}</textarea>
 			</div>
 			{{{ end }}}
 
 			{{{ if (allowSignature && !disableSignatures) }}}
 			<div class="mb-3">
-				<label class="form-label fw-bold" for="signature">[[user:signature]]</label> <small><label id="signatureCharCountLeft"></label></small>
+				<label class="form-label fw-bold" for="signature" style="color:#5E4631">[[user:signature]]</label> <small><label id="signatureCharCountLeft"></label></small>
 				<textarea class="form-control" id="signature" name="signature" rows="5">{signature}</textarea>
 			</div>
 			{{{ end }}}
@@ -86,19 +87,19 @@
 		<div class="text-center">
 			<ul class="list-group mb-3 text-sm text-nowrap">
 				{{{ if allowProfilePicture }}}
-				<li class="list-group-item"><a component="profile/change/picture" href="#" class="text-decoration-none text-reset">[[user:change-picture]]</a></li>
+				<li class="list-group-item" style="color:#5E4631"><a component="profile/change/picture" href="#" class="text-decoration-none text-reset">[[user:change-picture]]</a></li>
 				{{{ end }}}
 				{{{ if !username:disableEdit }}}
-				<li class="list-group-item"><a href="{config.relative_path}/user/{userslug}/edit/username" class="text-decoration-none text-reset">[[user:change-username]]</a></li>
+				<li class="list-group-item" style="color:#5E4631"><a href="{config.relative_path}/user/{userslug}/edit/username" class="text-decoration-none text-reset">[[user:change-username]]</a></li>
 				{{{ end }}}
 				{{{ if !email:disableEdit }}}
-				<li class="list-group-item"><a href="{config.relative_path}/user/{userslug}/edit/email" class="text-decoration-none text-reset">[[user:change-email]]</a></li>
+				<li class="list-group-item" style="color:#5E4631"><a href="{config.relative_path}/user/{userslug}/edit/email" class="text-decoration-none text-reset">[[user:change-email]]</a></li>
 				{{{ end }}}
 				{{{ if canChangePassword }}}
-				<li class="list-group-item"><a href="{config.relative_path}/user/{userslug}/edit/password" class="text-decoration-none text-reset">[[user:change-password]]</a></li>
+				<li class="list-group-item" style="color:#5E4631"><a href="{config.relative_path}/user/{userslug}/edit/password" class="text-decoration-none text-reset">[[user:change-password]]</a></li>
 				{{{ end }}}
 				{{{ each editButtons }}}
-				<li class="list-group-item"><a href="{config.relative_path}{./link}" class="text-decoration-none text-reset">{./text}</a></li>
+				<li class="list-group-item" style="color:#5E4631"><a href="{config.relative_path}{./link}" class="text-decoration-none text-reset">{./text}</a></li>
 				{{{ end }}}
 			</ul>
 

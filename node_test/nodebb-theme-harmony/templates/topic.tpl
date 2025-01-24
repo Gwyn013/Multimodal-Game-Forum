@@ -26,6 +26,7 @@
 			<div class="d-flex flex-column gap-3 flex-grow-1">
 				<h1 component="post/header" class="tracking-tight fw-semibold fs-3 mb-0 text-break post-content {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}">
 					<span class="topic-title" component="topic/title">{title}</span>
+					<div class="d-flex hidden-xs gap-2" style="float: right;"><!-- IMPORT partials/topic/stats.tpl --></div>
 				</h1>
 
 				<div class="topic-info d-flex gap-2 align-items-center flex-wrap {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}">
@@ -46,7 +47,6 @@
 					</span>
 					{function.buildCategoryLabel, category, "a", "border"}
 					<div data-tid="{./tid}" component="topic/tags" class="lh-1 tags tag-list d-flex flex-wrap hidden-xs hidden-empty gap-2"><!-- IMPORT partials/topic/tags.tpl --></div>
-					<div class="d-flex hidden-xs gap-2"><!-- IMPORT partials/topic/stats.tpl --></div>
 				</div>
 			</div>
 			<div class="d-flex gap-2 justify-content-end align-items-center mt-2 hidden-empty" component="topic/thumb/list"><!-- IMPORT partials/topic/thumbs.tpl --></div>

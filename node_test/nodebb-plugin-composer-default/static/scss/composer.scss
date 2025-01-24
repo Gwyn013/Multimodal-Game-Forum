@@ -236,9 +236,15 @@
 		padding: $input-padding-y $input-padding-x;
 	}
 }
+.title-container .text-truncate{
+	color: #957B65 !important;
+}
 .list-unstyled{
-	.code,.link,.picture-o,.zen{
+	.code,.picture-o,.zen{
 		display: none;
+	}
+	.btn-link i{
+		color: #8C6849 !important;
 	}
 }
 .datetime-picker {
@@ -386,4 +392,38 @@
 		color: var(--bs-secondary)!important;
 		background-color: var(--bs-body-bg)!important;
 	}
+}
+
+#select-tags {
+    color: #5E4631 !important;
+    
+    i.fa {
+        color: #AB372F !important;
+    }
+}
+
+#tags-modal {
+    .modal-title, label, h5 {
+        color: #5E4631;
+    }
+}
+
+#tags-modal input::placeholder {
+    color: #D4BFAD !important;
+}
+
+.option-color {
+	color: #D4BFAD !important;
+}
+
+#tags-modal .modal-dialog {
+    max-width: 600px;
+}
+
+#tags-modal .modal-content {
+    padding: 15px;
+}
+
+#tags-modal select, #tags-modal input {
+    width: 100%;
 }

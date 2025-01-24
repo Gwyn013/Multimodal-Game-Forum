@@ -7,22 +7,22 @@
 	<div class="d-flex gap-2 align-items-center mb-1 {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}">
 		{buildCategoryIcon(@value, "40px", "rounded-1 flex-shrink-0")}
 		<h1 class="tracking-tight fs-2 fw-semibold mb-0 text-center section-name">{./name}</h1>
+		<div class="d-flex flex-wrap gap-2 {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}" style="margin-left:auto;">
+			<span class="badge stats-text-body stats text-xs">
+				<span title="{totalTopicCount}" class="fw-bold">{humanReadableNumber(totalTopicCount)}</span>
+				<span class="text-lowercase fw-normal">[[global:topics]]</span>
+			</span>
+			<span class="badge stats-text-body stats text-xs">
+				<span title="{totalPostCount}" class="fw-bold">{humanReadableNumber(totalPostCount)}</span>
+				<span class="text-lowercase fw-normal">[[global:posts]]</span>
+			</span>
+		</div>
 	</div>
 	{{{ if ./descriptionParsed }}}
 	<div class="description custom-description text-sm w-100 {{{ if config.theme.centerHeaderElements }}}text-center{{{ end }}}">
 		{./descriptionParsed}
 	</div>
 	{{{ end }}}
-	<div class="d-flex flex-wrap gap-2 {{{ if config.theme.centerHeaderElements }}}justify-content-center{{{ end }}}">
-		<span class="badge text-body border border-gray-300 stats text-xs">
-			<span title="{totalTopicCount}" class="fw-bold">{humanReadableNumber(totalTopicCount)}</span>
-			<span class="text-lowercase fw-normal">[[global:topics]]</span>
-		</span>
-		<span class="badge text-body border border-gray-300 stats text-xs">
-			<span title="{totalPostCount}" class="fw-bold">{humanReadableNumber(totalPostCount)}</span>
-			<span class="text-lowercase fw-normal">[[global:posts]]</span>
-		</span>
-	</div>
 </div>
 
 {{{ if widgets.header.length }}}
