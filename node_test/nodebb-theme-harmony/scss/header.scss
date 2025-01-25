@@ -100,7 +100,7 @@ body[class*="template-account-"],
 	gap: 16px; // 增加间距为两倍
 	padding: 10px;
 	width: 100%;
-	aspect-ratio: 1827/256;
+	// aspect-ratio: 1827/256;
 }
 
 // 所有区块的基础样式
@@ -183,6 +183,7 @@ body[class*="template-account-"],
 	display: flex;
 	flex-direction: column;
 	overflow: hidden; // 添加溢出隐藏
+    height: auto;
 
 	h3 {
 		height: 11.5%;
