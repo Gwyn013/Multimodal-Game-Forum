@@ -35,6 +35,17 @@ define('forum/topic', [
 			components.get('navbar/title').find('span').text('').hide();
 			alerts.remove('bookmark');
 		}
+
+		if (data.url.startsWith('topic/')) {
+			const tid = data.url.split('/')[1];
+			socket.emit('topics.canViewSensitive', {tid: tid}, function(err, result) {
+				if (!result.canView) {
+					app.alertError(result.message || `因主题贴存在敏感内容，声望值达到${result.minRep}才可查看`);
+					ajaxify.go('categories');
+					return false;
+				}
+			});
+		}
 	});
 
 	Topic.init = async function () {
@@ -435,6 +446,19 @@ define('forum/topic', [
 		}
 	}
 
+	function handleSensitiveContentError(err) {
+		if (err && err.status === 403) {
+			const minRep = ajaxify.data.minRepViewSensitive || 0;
+			app.alert({
+				type: 'danger',
+				title: '访问受限',
+				message: `因主题贴存在敏感内容，声望值达到${minRep}才可查看`,
+				timeout: 5000
+			});
+			return true;
+		}
+		return false;
+	}
 
 	return Topic;
 });

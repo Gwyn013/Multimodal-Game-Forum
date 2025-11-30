@@ -104,7 +104,7 @@
     "composer.upload-file": "上传文件",
     "composer.zen-mode": "无干扰模式",
     "composer.select-category": "选择一个版块",
-    "composer.textarea.placeholder": "在此处输入您的帖子内容，拖放图像",
+    "composer.textarea.placeholder": "如需换行请手动点击2次回车键；同人图建议添加预览图。所有避雷&预警&授权截图必须写在一楼。其余说明和简介按需填写。",
     "composer.post-queue-alert": "Hello👋!<br/>This forum uses a post queue system, since you are a new user your post will be hidden until it is approved by our moderation team.",
     "composer.schedule-for": "定时主题到",
     "composer.schedule-date": "日期",

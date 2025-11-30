@@ -40,6 +40,14 @@
 							</div>
 						</div>
 
+						<div class="form-group">
+						    <label for="inviteCode">邀请码</label>
+						    <div>
+ 						   <input type="text" class="form-control" id="invite-code-input-4-register" name="inviteCode" placeholder="请输入邀请码">
+						        <span class="register-feedback text-xs text-danger" id="invite-code-input-4-register-confirm-notify" aria-live="polite"></span>
+                            </div>
+						</div>
+
 						{{{ each regFormEntry }}}
 						<div class="mb-2 regFormEntry d-flex flex-column gap-2 {./styleName}">
 							<label for="{./inputId}">{./label}</label>

@@ -37,6 +37,13 @@
 			<div id="activity-thresholds" class="mb-4">
 				<h5 class="fw-bold tracking-tight settings-header">[[admin/settings/reputation:thresholds]]</h5>
 				<div class="mb-3">
+					<label class="form-label" for="min:rep:view-sensitive">[[admin/settings/reputation:min-rep-view-sensitive]]</label>
+					<input type="number" class="form-control" placeholder="10" data-field="min:rep:view-sensitive" id="min:rep:view-sensitive">
+					<p class="form-text">
+						[[admin/settings/reputation:min-rep-view-sensitive-help]]
+					</p>
+				</div>
+				<div class="mb-3">
 					<label class="form-label" for="min:rep:chat">[[admin/settings/reputation:min-rep-chat]]</label>
 					<input type="number" class="form-control" placeholder="0" data-field="min:rep:chat" id="min:rep:chat">
 				</div>

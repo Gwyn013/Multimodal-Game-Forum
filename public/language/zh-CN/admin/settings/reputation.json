@@ -24,6 +24,8 @@
 	"min-rep-signature": "添加“签名档”到用户资料需要的最低声望",
 	"min-rep-profile-picture": "添加“头像”到用户资料需要的最低声望",
 	"min-rep-cover-picture": "添加 个人封面图片 需要的最低声望",
+	"min-rep-view-sensitive": "查看敏感内容主题需要的最低声望",
+  	"min-rep-view-sensitive-help": "当用户声望值低于此值时,无法查看带有敏感标签的主题",
 
 	"flags": "投诉设置",
 	"flags.limit-per-target": "可以投诉某事物的最大次数",

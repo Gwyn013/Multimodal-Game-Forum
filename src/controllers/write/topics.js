@@ -21,6 +21,12 @@ Topics.get = async (req, res) => {
 Topics.create = async (req, res) => {
 	const id = await lockPosting(req, '[[error:already-posting]]');
 	try {
+		// 允许任何用户使用敏感标签发帖
+		const sensitiveTags = ['边限不含特殊元素', '边限内容含特殊元素'];
+		if (req.body.tags && req.body.tags.some(tag => sensitiveTags.includes(tag))) {
+			// 直接允许发帖，不检查声望
+		}
+
 		const payload = await api.topics.create(req, req.body);
 		if (payload.queued) {
 			helpers.formatApiResponse(202, res, payload);

@@ -7,6 +7,7 @@
     "failed-login-attempt": "登入失敗",
     "login-successful": "您已成功登入！",
     "dont-have-account": "沒有帳戶？",
+    "dont-pass-email": "未验证通过的邮箱可以直接使用用户名登录。",
     "logged-out-due-to-inactivity": "由於長時間沒有活動，您的帳戶已被管理員從後台登出",
     "caps-lock-enabled": "Caps Lock is enabled"
 }

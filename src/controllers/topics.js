@@ -39,11 +39,21 @@ topicsController.get = async function getTopic(req, res, next) {
 		userPrivileges,
 		settings,
 		rssToken,
+		canViewSensitive
 	] = await Promise.all([
 		privileges.topics.get(tid, req.uid),
 		user.getSettings(req.uid),
 		user.auth.getFeedToken(req.uid),
+		privileges.topics.canViewSensitiveContent(tid, req.uid)
 	]);
+
+	if (!canViewSensitive) {
+		const minRep = meta.config['min:rep:view-sensitive'] || 0;
+		return res.render('403', {
+			error: `因主题贴存在敏感内容，声望值达到${minRep}才可查看`,
+			title: '[[global:403.title]]'
+		});
+	}
 
 	let currentPage = parseInt(req.query.page, 10) || 1;
 	const pageCount = Math.max(1, Math.ceil((topicData && topicData.postcount) / settings.postsPerPage));
@@ -57,6 +67,14 @@ topicsController.get = async function getTopic(req, res, next) {
 	}
 
 	if (!userPrivileges['topics:read'] || (!topicData.scheduled && topicData.deleted && !userPrivileges.view_deleted)) {
+		return helpers.notAllowed(req, res);
+	}
+
+	const [canView] = await Promise.all([
+		privileges.topics.can('topics:read', tid, req.uid),
+	]);
+
+	if (!canView) {
 		return helpers.notAllowed(req, res);
 	}
 

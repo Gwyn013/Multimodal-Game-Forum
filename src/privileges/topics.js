@@ -1,4 +1,3 @@
-
 'use strict';
 
 const _ = require('lodash');
@@ -192,4 +191,33 @@ privsTopics.canViewDeletedScheduled = function (topic, privileges = {}, viewDele
 	}
 
 	return true;
+};
+
+privsTopics.canViewSensitiveContent = async function (tid, uid) {
+	if (!tid || !uid) {
+		return false; // 改为默认不可见
+	}
+
+	const [isAdmin, userData, topicData] = await Promise.all([
+		user.isAdministrator(uid),
+		user.getUserData(uid),
+		topics.getTopicData(tid), // 使用 getTopicData 替代 getTopicFields
+	]);
+
+	// 管理员或主题作者可以查看
+	if (isAdmin || topicData.uid === parseInt(uid, 10)) {
+		return true;
+	}
+
+	// 检查是否包含敏感标签
+	const sensitiveTags = ['边限不含特殊元素', '边限内容含特殊元素'];
+	const hasSensitiveTag = Array.isArray(topicData.tags) && 
+		topicData.tags.some(tag => sensitiveTags.includes(tag.value));
+	
+	if (!hasSensitiveTag) {
+		return true;
+	}
+
+	const minReputation = parseInt(meta.config['min:rep:view-sensitive'] || 0, 10);
+	return userData && userData.reputation >= minReputation;
 };

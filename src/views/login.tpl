@@ -14,6 +14,7 @@
 						<div class="mb-2 d-flex flex-column gap-2">
 							<label for="username">{allowLoginWith}</label>
 							<input class="form-control" type="text" placeholder="{allowLoginWith}" name="username" id="username" autocorrect="off" autocapitalize="off" autocomplete="nickname" value="{username}" aria-required="true"/>
+						    <div class="text-xs">[[login:dont-pass-email]]</div>
 						</div>
 
 						<div class="mb-2 d-flex flex-column gap-2">

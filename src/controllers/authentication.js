@@ -17,7 +17,7 @@ const slugify = require('../slugify');
 const helpers = require('./helpers');
 const privileges = require('../privileges');
 const sockets = require('../socket.io');
-
+const inviteCodeService = require('../../node_modules/nodebb-theme-harmony/lib/inviteCodeService');
 const authenticationController = module.exports;
 
 async function registerAndLoginUser(req, res, userData) {
@@ -40,16 +40,23 @@ async function registerAndLoginUser(req, res, userData) {
 		res.json({ next: `${nconf.get('relative_path')}/register/complete` });
 		return;
 	}
-
-	const queue = await user.shouldQueueUser(req.ip);
-	const result = await plugins.hooks.fire('filter:register.shouldQueue', { req: req, res: res, userData: userData, queue: queue });
-	if (result.queue) {
-		return await addToApprovalQueue(req, userData);
+	const inviteCode = userData.inviteCode;
+	if (!inviteCode) { // 仅在未使用邀请码时检查是否需要排队审核
+		const queue = await user.shouldQueueUser(req.ip);
+		const result = await plugins.hooks.fire('filter:register.shouldQueue', { req: req, res: res, userData: userData, queue: queue });
+		if (result.queue) {
+			return await addToApprovalQueue(req, userData);
+		}
 	}
 
 	const uid = await user.create(userData);
 	if (res.locals.processLogin) {
 		await authenticationController.doLogin(req, uid);
+	}
+
+	//邀请码处理
+	if (inviteCode) {
+		await inviteCodeService.useInviteCode(inviteCode, uid);
 	}
 
 	// Distinguish registrations through invites from direct ones
@@ -76,6 +83,12 @@ authenticationController.register = async function (req, res) {
 
 	const userData = req.body;
 	try {
+
+		const inviteCode = userData.inviteCode;
+		if (inviteCode) {
+			await inviteCodeService.checkInviteCodeExist(inviteCode, undefined, true)
+		}
+
 		if (userData.token || registrationType === 'invite-only' || registrationType === 'admin-invite-only') {
 			await user.verifyInvitation(userData);
 		}
@@ -108,12 +121,14 @@ authenticationController.register = async function (req, res) {
 		await plugins.hooks.fire('filter:register.check', { req: req, res: res, userData: userData });
 
 		const data = await registerAndLoginUser(req, res, userData);
+
 		if (data) {
 			if (data.uid && req.body.userLang) {
 				await user.setSetting(data.uid, 'userLang', req.body.userLang);
 			}
 			res.json(data);
 		}
+
 	} catch (err) {
 		helpers.noScriptErrors(req, res, err.message, 400);
 	}
